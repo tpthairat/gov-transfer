@@ -1448,7 +1448,7 @@
 
         <!-- Admin Page -->
         <div id="adminPage" class="page-content hidden">
-            <h2 class="text-3xl font-bold text-white mb-8">แอดมิน - จัดการระบบ</h2>
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">แอดมิน - จัดการระบบ</h2>
             
             <!-- Admin Stats -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
@@ -1804,36 +1804,36 @@
             loginButton.disabled = true;
             errorDiv.classList.add('hidden');
 
-            auth.signInWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                    currentUser = userCredential.user;
+            // Demo login - check credentials
+            if (email === 'admin@demo.com' && password === '123456') {
+                setTimeout(() => {
+                    currentUser = { email: email };
                     isAdminLoggedIn = true;
                     hideAdminLogin();
                     updateAdminUI();
                     showPage('admin');
-                    console.log('เข้าสู่ระบบสำเร็จ:', currentUser.email);
-                })
-                .catch((error) => {
-                    console.error('เข้าสู่ระบบไม่สำเร็จ:', error);
-                    errorDiv.textContent = getAuthErrorMessage(error.code);
-                    errorDiv.classList.remove('hidden');
-                })
-                .finally(() => {
+                    console.log('เข้าสู่ระบบสำเร็จ:', email);
+                    
                     loginButton.textContent = 'เข้าสู่ระบบ';
                     loginButton.disabled = false;
-                });
+                }, 1000);
+            } else {
+                setTimeout(() => {
+                    errorDiv.textContent = 'อีเมลหรือรหัสผ่านไม่ถูกต้อง';
+                    errorDiv.classList.remove('hidden');
+                    
+                    loginButton.textContent = 'เข้าสู่ระบบ';
+                    loginButton.disabled = false;
+                }, 1000);
+            }
         }
 
         function adminLogout() {
-            auth.signOut().then(() => {
-                isAdminLoggedIn = false;
-                currentUser = null;
-                updateAdminUI();
-                showPage('home');
-                console.log('ออกจากระบบสำเร็จ');
-            }).catch((error) => {
-                console.error('ออกจากระบบไม่สำเร็จ:', error);
-            });
+            isAdminLoggedIn = false;
+            currentUser = null;
+            updateAdminUI();
+            showPage('home');
+            console.log('ออกจากระบบสำเร็จ');
         }
 
         function getAuthErrorMessage(errorCode) {
@@ -1861,12 +1861,12 @@
                 adminLoginBtn.onclick = adminLogout;
                 
                 // Show admin navigation
-                const nav = document.querySelector('nav .flex.items-center.space-x-2');
-                if (!document.getElementById('adminNavBtn')) {
+                const nav = document.querySelector('nav .hidden.lg\\:flex.items-center.space-x-2');
+                if (nav && !document.getElementById('adminNavBtn')) {
                     const adminNavBtn = document.createElement('button');
                     adminNavBtn.id = 'adminNavBtn';
-                    adminNavBtn.className = 'nav-btn text-gray-600 hover:text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors';
-                    adminNavBtn.textContent = 'แอดมิน';
+                    adminNavBtn.className = 'nav-btn text-gray-600 hover:text-blue-600 px-4 py-3 rounded-lg hover:bg-blue-50 transition-colors text-base font-medium';
+                    adminNavBtn.textContent = '⚙️ แอดมิน';
                     adminNavBtn.onclick = () => showPage('admin');
                     nav.appendChild(adminNavBtn);
                 }
@@ -1882,20 +1882,10 @@
             }
         }
 
-        // Check authentication state on page load
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                currentUser = user;
-                isAdminLoggedIn = true;
-                updateAdminUI();
-                console.log('ผู้ใช้เข้าสู่ระบบแล้ว:', user.email);
-            } else {
-                currentUser = null;
-                isAdminLoggedIn = false;
-                updateAdminUI();
-                console.log('ผู้ใช้ออกจากระบบแล้ว');
-            }
-        });
+        // Initialize admin UI
+        function initializeAdminUI() {
+            updateAdminUI();
+        }
 
         // Navigation
         function showPage(pageId) {
@@ -3234,17 +3224,8 @@
             const email = 'admin@demo.com';
             const password = '123456';
             
-            auth.createUserWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                    console.log('สร้างบัญชีแอดมินเดโมสำเร็จ');
-                })
-                .catch((error) => {
-                    if (error.code === 'auth/email-already-in-use') {
-                        console.log('บัญชีแอดมินเดโมมีอยู่แล้ว');
-                    } else {
-                        console.log('ไม่สามารถสร้างบัญชีแอดมินเดโมได้:', error.message);
-                    }
-                });
+            // For demo purposes, we'll simulate admin login without Firebase Auth
+            console.log('บัญชีแอดมินเดโม: admin@demo.com / 123456');
         }
 
 
@@ -3716,6 +3697,7 @@ ${qualifications}
             initializeDatabase();
             loadNewsFromFirebase();
             showPage('home');
+            initializeAdminUI();
             
             // Setup form handlers
             document.getElementById('transferPostForm').addEventListener('submit', handleTransferFormSubmit);
@@ -3726,5 +3708,5 @@ ${qualifications}
             console.log('สำหรับทดสอบ: อีเมล admin@demo.com รหัสผ่าน 123456');
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97330f7952c34ba1',t:'MTc1NTg3Mjk0Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97331eda656e45c0',t:'MTc1NTg3MzU3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
