@@ -3,22 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ประกาศโอนย้ายข้าราชการ</title>
+
+    <!-- Title -->
+    <title>ประกาศโอนย้ายข้าราชการ | ระบบลงประกาศ งานราชการ และโอนย้ายออนไลน์</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ระบบประกาศโอนย้ายข้าราชการ ค้นหางานราชการ ข่าวสาร กฎหมาย และประกาศราชการออนไลน์ อัปเดตล่าสุด">
+    <meta name="keywords" content="โอนย้ายข้าราชการ, งานราชการ, สมัครสอบราชการ, ประกาศรับโอนย้าย, ข่าวราชการ, ข้าราชการท้องถิ่น, ข้าราชการพลเรือน">
+    <meta name="author" content="Government Transfer System">
+
+    <!-- Open Graph (Facebook / LINE / LinkedIn) -->
+    <meta property="og:title" content="ประกาศโอนย้ายข้าราชการ | ระบบออนไลน์">
+    <meta property="og:description" content="ค้นหาประกาศโอนย้ายข้าราชการ ข่าวสารราชการ และระบบจัดการออนไลน์ ใช้งานฟรี">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tpthairat.github.io/gov-transfer/">
+    <meta property="og:image" content="https://tpthairat.github.io/gov-transfer/og-image.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ประกาศโอนย้ายข้าราชการ">
+    <meta name="twitter:description" content="ระบบประกาศ งานสอบราชการ และโอนย้ายออนไลน์">
+    <meta name="twitter:image" content="https://tpthairat.github.io/gov-transfer/og-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://tpthairat.github.io/gov-transfer/">
+
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://tpthairat.github.io/gov-transfer/sitemap.xml">
+
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ระบบประกาศโอนย้ายข้าราชการ",
+      "url": "https://tpthairat.github.io/gov-transfer/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://tpthairat.github.io/gov-transfer/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- Tailwind + Fonts (ของเดิม) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Firebase SDK -->
+
+    <!-- Firebase SDK (ของเดิม) -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+
+    <!-- CSS เดิม -->
     <style>
         body { font-family: 'Sarabun', sans-serif; }
         .fade-in { animation: fadeIn 0.5s ease-in; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .slide-in { animation: slideIn 0.3s ease-out; }
         @keyframes slideIn { from { transform: translateX(-100%); } to { transform: translateX(0); } }
-        
-        /* Text clamp utilities */
         .line-clamp-2 {
             display: -webkit-box;
             -webkit-line-clamp: 2;
@@ -3927,3 +3970,4 @@ ${qualifications}
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9733746e17454b82',t:'MTc1NTg3NzA4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
