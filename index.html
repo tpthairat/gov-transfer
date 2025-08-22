@@ -3229,6 +3229,24 @@
             delete document.getElementById('newsForm').dataset.editId;
         });
 
+        // Create demo admin account on page load
+        function createDemoAdmin() {
+            const email = 'admin@demo.com';
+            const password = '123456';
+            
+            auth.createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    console.log('สร้างบัญชีแอดมินเดโมสำเร็จ');
+                })
+                .catch((error) => {
+                    if (error.code === 'auth/email-already-in-use') {
+                        console.log('บัญชีแอดมินเดโมมีอยู่แล้ว');
+                    } else {
+                        console.log('ไม่สามารถสร้างบัญชีแอดมินเดโมได้:', error.message);
+                    }
+                });
+        }
+
 
 
         // Preview and draft functions
@@ -3704,9 +3722,9 @@ ${qualifications}
             document.getElementById('examPostForm').addEventListener('submit', handleExamFormSubmit);
             
             // Create demo admin account (for testing purposes)
-            // In production, this should be done through Firebase Console
+            createDemoAdmin();
             console.log('สำหรับทดสอบ: อีเมล admin@demo.com รหัสผ่าน 123456');
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'973301c9662245c9',t:'MTc1NTg3MjM4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97330f7952c34ba1',t:'MTc1NTg3Mjk0Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
