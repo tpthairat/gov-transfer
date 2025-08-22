@@ -94,6 +94,26 @@
                         </div>
                     </div>
                     
+                    <!-- ข่าวสาร/บทความ Dropdown -->
+                    <div class="relative group">
+                        <button class="nav-btn text-gray-600 hover:text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors flex items-center">
+                            📰 ข่าวสาร/บทความ <span class="ml-1 text-xs">▼</span>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <div class="p-2">
+                                <button id="transferNewsBtn" class="flex items-center w-full text-left px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
+                                    <span class="mr-3">📰</span>ข่าวเกี่ยวกับการโอนย้าย
+                                </button>
+                                <button id="lawsRegulationsBtn" class="flex items-center w-full text-left px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
+                                    <span class="mr-3">⚖️</span>กฎหมาย ระเบียบที่เกี่ยวข้อง
+                                </button>
+                                <button id="documentGuideBtn" class="flex items-center w-full text-left px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
+                                    <span class="mr-3">📋</span>บทความแนะนำการเตรียมเอกสาร
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <!-- ลงประกาศ Dropdown -->
                     <div class="relative group">
                         <button class="nav-btn text-gray-600 hover:text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors flex items-center">
@@ -232,6 +252,181 @@
                 </div>
             </div>
 
+            <!-- Search Section -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-12">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800">🔍 ค้นหาประกาศ</h3>
+                    <button id="toggleHomeAdvancedSearch" class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+                        <span id="toggleHomeText">แสดงตัวกรองเพิ่มเติม</span> <span id="toggleHomeIcon">▼</span>
+                    </button>
+                </div>
+                
+                <!-- Basic Search -->
+                <div class="flex flex-wrap gap-4 mb-4">
+                    <select id="homeCategoryFilter" class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option value="">ทุกหมวดหมู่</option>
+                        <option value="exam">งานสอบราชการ</option>
+                        <option value="transfer">โอนย้าย</option>
+                        <option value="promotion">เลื่อนตำแหน่ง</option>
+                        <option value="announcement">ประกาศ</option>
+                    </select>
+                    <input type="text" id="homeSearchNews" placeholder="ค้นหาประกาศ..." class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent flex-1 min-w-64">
+                    <button id="homeSearchBtn" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">ค้นหา</button>
+                    <button id="homeClearFilters" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors">ล้างตัวกรอง</button>
+                </div>
+                
+                <!-- Advanced Filters (Hidden by default) -->
+                <div id="homeAdvancedFilters" class="hidden border-t pt-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <!-- Province Filter -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">จังหวัด</label>
+                            <select id="homeProvinceFilter" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">ทุกจังหวัด</option>
+                                <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
+                                <option value="กระบี่">กระบี่</option>
+                                <option value="กาญจนบุรี">กาญจนบุรี</option>
+                                <option value="กาฬสินธุ์">กาฬสินธุ์</option>
+                                <option value="กำแพงเพชร">กำแพงเพชร</option>
+                                <option value="ขอนแก่น">ขอนแก่น</option>
+                                <option value="จันทบุรี">จันทบุรี</option>
+                                <option value="ฉะเชิงเทรา">ฉะเชิงเทรา</option>
+                                <option value="ชลบุรี">ชลบุรี</option>
+                                <option value="ชัยนาท">ชัยนาท</option>
+                                <option value="ชัยภูมิ">ชัยภูมิ</option>
+                                <option value="ชุมพร">ชุมพร</option>
+                                <option value="เชียงราย">เชียงราย</option>
+                                <option value="เชียงใหม่">เชียงใหม่</option>
+                                <option value="ตรัง">ตรัง</option>
+                                <option value="ตราด">ตราด</option>
+                                <option value="ตาก">ตาก</option>
+                                <option value="นครนายก">นครนายก</option>
+                                <option value="นครปฐม">นครปฐม</option>
+                                <option value="นครพนม">นครพนม</option>
+                                <option value="นครราชสีมา">นครราชสีมา</option>
+                                <option value="นครศรีธรรมราช">นครศรีธรรมราช</option>
+                                <option value="นครสวรรค์">นครสวรรค์</option>
+                                <option value="นนทบุรี">นนทบุรี</option>
+                                <option value="นราธิวาส">นราธิวาส</option>
+                                <option value="น่าน">น่าน</option>
+                                <option value="บึงกาฬ">บึงกาฬ</option>
+                                <option value="บุรีรัมย์">บุรีรัมย์</option>
+                                <option value="ปทุมธานี">ปทุมธานี</option>
+                                <option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์</option>
+                                <option value="ปราจีนบุรี">ปราจีนบุรี</option>
+                                <option value="ปัตตานี">ปัตตานี</option>
+                                <option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา</option>
+                                <option value="พะเยา">พะเยา</option>
+                                <option value="พังงา">พังงา</option>
+                                <option value="พัทลุง">พัทลุง</option>
+                                <option value="พิจิตร">พิจิตร</option>
+                                <option value="พิษณุโลก">พิษณุโลก</option>
+                                <option value="เพชรบุรี">เพชรบุรี</option>
+                                <option value="เพชรบูรณ์">เพชรบูรณ์</option>
+                                <option value="แพร่">แพร่</option>
+                                <option value="ภูเก็ต">ภูเก็ต</option>
+                                <option value="มหาสารคาม">มหาสารคาม</option>
+                                <option value="มุกดาหาร">มุกดาหาร</option>
+                                <option value="แม่ฮ่องสอน">แม่ฮ่องสอน</option>
+                                <option value="ยะลา">ยะลา</option>
+                                <option value="ยโสธร">ยโสธร</option>
+                                <option value="ร้อยเอ็ด">ร้อยเอ็ด</option>
+                                <option value="ระนอง">ระนอง</option>
+                                <option value="ระยอง">ระยอง</option>
+                                <option value="ราชบุรี">ราชบุรี</option>
+                                <option value="ลพบุรี">ลพบุรี</option>
+                                <option value="ลำปาง">ลำปาง</option>
+                                <option value="ลำพูน">ลำพูน</option>
+                                <option value="เลย">เลย</option>
+                                <option value="ศรีสะเกษ">ศรีสะเกษ</option>
+                                <option value="สกลนคร">สกลนคร</option>
+                                <option value="สงขลา">สงขลา</option>
+                                <option value="สตูล">สตูล</option>
+                                <option value="สมุทรปราการ">สมุทรปราการ</option>
+                                <option value="สมุทรสงคราม">สมุทรสงคราม</option>
+                                <option value="สมุทรสาคร">สมุทรสาคร</option>
+                                <option value="สระแก้ว">สระแก้ว</option>
+                                <option value="สระบุรี">สระบุรี</option>
+                                <option value="สิงห์บุรี">สิงห์บุรี</option>
+                                <option value="สุโขทัย">สุโขทัย</option>
+                                <option value="สุพรรณบุรี">สุพรรณบุรี</option>
+                                <option value="สุราษฎร์ธานี">สุราษฎร์ธานี</option>
+                                <option value="สุรินทร์">สุรินทร์</option>
+                                <option value="หนองคาย">หนองคาย</option>
+                                <option value="หนองบัวลำภู">หนองบัวลำภู</option>
+                                <option value="อ่างทอง">อ่างทอง</option>
+                                <option value="อำนาจเจริญ">อำนาจเจริญ</option>
+                                <option value="อุดรธานี">อุดรธานี</option>
+                                <option value="อุตรดิตถ์">อุตรดิตถ์</option>
+                                <option value="อุทัยธานี">อุทัยธานี</option>
+                                <option value="อุบลราชธานี">อุบลราชธานี</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Position Level Filter -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">ระดับตำแหน่ง</label>
+                            <select id="homePositionLevelFilter" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">ทุกระดับ</option>
+                                <option value="ปฏิบัติการ">ปฏิบัติการ</option>
+                                <option value="ชำนาญการ">ชำนาญการ</option>
+                                <option value="ชำนาญการพิเศษ">ชำนาญการพิเศษ</option>
+                                <option value="เชี่ยวชาญ">เชี่ยวชาญ</option>
+                                <option value="เชี่ยวชาญพิเศษ">เชี่ยวชาญพิเศษ</option>
+                                <option value="อำนวยการ">อำนวยการ</option>
+                                <option value="บริหาร">บริหาร</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Agency Type Filter -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">ประเภทหน่วยงาน</label>
+                            <select id="homeAgencyTypeFilter" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">ทุกประเภท</option>
+                                <option value="ministry">กระทรวง</option>
+                                <option value="department">กรม</option>
+                                <option value="office">สำนักงาน</option>
+                                <option value="provincial">ส่วนราชการส่วนภูมิภาค</option>
+                                <option value="local">องค์กรปกครองส่วนท้องถิ่น</option>
+                                <option value="state_enterprise">รัฐวิสาหกิจ</option>
+                                <option value="independent">องค์กรอิสระ</option>
+                                <option value="university">สถาบันอุดมศึกษา</option>
+                                <option value="others">อื่นๆ</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Salary Range Filter -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">ช่วงเงินเดือน</label>
+                            <select id="homeSalaryRangeFilter" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">ทุกช่วง</option>
+                                <option value="0-20000">ต่ำกว่า 20,000 บาท</option>
+                                <option value="20000-30000">20,000 - 30,000 บาท</option>
+                                <option value="30000-40000">30,000 - 40,000 บาท</option>
+                                <option value="40000-50000">40,000 - 50,000 บาท</option>
+                                <option value="50000-999999">มากกว่า 50,000 บาท</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Search Results Summary -->
+                    <div id="homeSearchSummary" class="mt-4 p-3 bg-blue-50 rounded-lg hidden">
+                        <div class="flex items-center justify-between">
+                            <span class="text-blue-800 font-medium">ผลการค้นหา: <span id="homeResultCount">0</span> รายการ</span>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-sm text-blue-600">เรียงตาม:</span>
+                                <select id="homeSortBy" class="text-sm border border-blue-300 rounded px-2 py-1 focus:ring-1 focus:ring-blue-500">
+                                    <option value="date-desc">วันที่ล่าสุด</option>
+                                    <option value="date-asc">วันที่เก่าสุด</option>
+                                    <option value="views-desc">ยอดดูมากสุด</option>
+                                    <option value="title-asc">ชื่อ A-Z</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Recent Announcements Cards -->
             <div class="mb-12">
                 <h3 class="text-2xl font-bold text-gray-800 mb-6">ประกาศล่าสุด</h3>
@@ -259,9 +454,17 @@
                 <button onclick="showPage('postTransfer')" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors">+ เพิ่มประกาศใหม่</button>
             </div>
 
-            <!-- News Filter -->
+            <!-- Advanced Search Filter -->
             <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
-                <div class="flex flex-wrap gap-4">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800">🔍 ระบบค้นหาขั้นสูง</h3>
+                    <button id="toggleAdvancedSearch" class="text-blue-600 hover:text-blue-800 text-sm font-medium">
+                        <span id="toggleText">แสดงตัวกรองเพิ่มเติม</span> <span id="toggleIcon">▼</span>
+                    </button>
+                </div>
+                
+                <!-- Basic Search -->
+                <div class="flex flex-wrap gap-4 mb-4">
                     <select id="categoryFilter" class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         <option value="">ทุกหมวดหมู่</option>
                         <option value="exam">งานสอบราชการ</option>
@@ -271,6 +474,170 @@
                     </select>
                     <input type="text" id="searchNews" placeholder="ค้นหาประกาศ..." class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent flex-1 min-w-64">
                     <button id="searchBtn" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">ค้นหา</button>
+                    <button id="clearFilters" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors">ล้างตัวกรอง</button>
+                </div>
+                
+                <!-- Advanced Filters (Hidden by default) -->
+                <div id="advancedFilters" class="hidden border-t pt-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <!-- Province Filter -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">จังหวัด</label>
+                            <select id="provinceFilter" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">ทุกจังหวัด</option>
+                                <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
+                                <option value="กระบี่">กระบี่</option>
+                                <option value="กาญจนบุรี">กาญจนบุรี</option>
+                                <option value="กาฬสินธุ์">กาฬสินธุ์</option>
+                                <option value="กำแพงเพชร">กำแพงเพชร</option>
+                                <option value="ขอนแก่น">ขอนแก่น</option>
+                                <option value="จันทบุรี">จันทบุรี</option>
+                                <option value="ฉะเชิงเทรา">ฉะเชิงเทรา</option>
+                                <option value="ชลบุรี">ชลบุรี</option>
+                                <option value="ชัยนาท">ชัยนาท</option>
+                                <option value="ชัยภูมิ">ชัยภูมิ</option>
+                                <option value="ชุมพร">ชุมพร</option>
+                                <option value="เชียงราย">เชียงราย</option>
+                                <option value="เชียงใหม่">เชียงใหม่</option>
+                                <option value="ตรัง">ตรัง</option>
+                                <option value="ตราด">ตราด</option>
+                                <option value="ตาก">ตาก</option>
+                                <option value="นครนายก">นครนายก</option>
+                                <option value="นครปฐม">นครปฐม</option>
+                                <option value="นครพนม">นครพนม</option>
+                                <option value="นครราชสีมา">นครราชสีมา</option>
+                                <option value="นครศรีธรรมราช">นครศรีธรรมราช</option>
+                                <option value="นครสวรรค์">นครสวรรค์</option>
+                                <option value="นนทบุรี">นนทบุรี</option>
+                                <option value="นราธิวาส">นราธิวาส</option>
+                                <option value="น่าน">น่าน</option>
+                                <option value="บึงกาฬ">บึงกาฬ</option>
+                                <option value="บุรีรัมย์">บุรีรัมย์</option>
+                                <option value="ปทุมธานี">ปทุมธานี</option>
+                                <option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์</option>
+                                <option value="ปราจีนบุรี">ปราจีนบุรี</option>
+                                <option value="ปัตตานี">ปัตตานี</option>
+                                <option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา</option>
+                                <option value="พะเยา">พะเยา</option>
+                                <option value="พังงา">พังงา</option>
+                                <option value="พัทลุง">พัทลุง</option>
+                                <option value="พิจิตร">พิจิตร</option>
+                                <option value="พิษณุโลก">พิษณุโลก</option>
+                                <option value="เพชรบุรี">เพชรบุรี</option>
+                                <option value="เพชรบูรณ์">เพชรบูรณ์</option>
+                                <option value="แพร่">แพร่</option>
+                                <option value="ภูเก็ต">ภูเก็ต</option>
+                                <option value="มหาสารคาม">มหาสารคาม</option>
+                                <option value="มุกดาหาร">มุกดาหาร</option>
+                                <option value="แม่ฮ่องสอน">แม่ฮ่องสอน</option>
+                                <option value="ยะลา">ยะลา</option>
+                                <option value="ยโสธร">ยโสธร</option>
+                                <option value="ร้อยเอ็ด">ร้อยเอ็ด</option>
+                                <option value="ระนอง">ระนอง</option>
+                                <option value="ระยอง">ระยอง</option>
+                                <option value="ราชบุรี">ราชบุรี</option>
+                                <option value="ลพบุรี">ลพบุรี</option>
+                                <option value="ลำปาง">ลำปาง</option>
+                                <option value="ลำพูน">ลำพูน</option>
+                                <option value="เลย">เลย</option>
+                                <option value="ศรีสะเกษ">ศรีสะเกษ</option>
+                                <option value="สกลนคร">สกลนคร</option>
+                                <option value="สงขลา">สงขลา</option>
+                                <option value="สตูล">สตูล</option>
+                                <option value="สมุทรปราการ">สมุทรปราการ</option>
+                                <option value="สมุทรสงคราม">สมุทรสงคราม</option>
+                                <option value="สมุทรสาคร">สมุทรสาคร</option>
+                                <option value="สระแก้ว">สระแก้ว</option>
+                                <option value="สระบุรี">สระบุรี</option>
+                                <option value="สิงห์บุรี">สิงห์บุรี</option>
+                                <option value="สุโขทัย">สุโขทัย</option>
+                                <option value="สุพรรณบุรี">สุพรรณบุรี</option>
+                                <option value="สุราษฎร์ธานี">สุราษฎร์ธานี</option>
+                                <option value="สุรินทร์">สุรินทร์</option>
+                                <option value="หนองคาย">หนองคาย</option>
+                                <option value="หนองบัวลำภู">หนองบัวลำภู</option>
+                                <option value="อ่างทอง">อ่างทอง</option>
+                                <option value="อำนาจเจริญ">อำนาจเจริญ</option>
+                                <option value="อุดรธานี">อุดรธานี</option>
+                                <option value="อุตรดิตถ์">อุตรดิตถ์</option>
+                                <option value="อุทัยธานี">อุทัยธานี</option>
+                                <option value="อุบลราชธานี">อุบลราชธานี</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Position Level Filter -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">ระดับตำแหน่ง</label>
+                            <select id="positionLevelFilter" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">ทุกระดับ</option>
+                                <option value="ปฏิบัติการ">ปฏิบัติการ</option>
+                                <option value="ชำนาญการ">ชำนาญการ</option>
+                                <option value="ชำนาญการพิเศษ">ชำนาญการพิเศษ</option>
+                                <option value="เชี่ยวชาญ">เชี่ยวชาญ</option>
+                                <option value="เชี่ยวชาญพิเศษ">เชี่ยวชาญพิเศษ</option>
+                                <option value="อำนวยการ">อำนวยการ</option>
+                                <option value="บริหาร">บริหาร</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Agency Type Filter -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">ประเภทหน่วยงาน</label>
+                            <select id="agencyTypeFilter" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">ทุกประเภท</option>
+                                <option value="ministry">กระทรวง</option>
+                                <option value="department">กรม</option>
+                                <option value="office">สำนักงาน</option>
+                                <option value="provincial">ส่วนราชการส่วนภูมิภาค</option>
+                                <option value="local">องค์กรปกครองส่วนท้องถิ่น</option>
+                                <option value="state_enterprise">รัฐวิสาหกิจ</option>
+                                <option value="independent">องค์กรอิสระ</option>
+                                <option value="university">สถาบันอุดมศึกษา</option>
+                                <option value="others">อื่นๆ</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Salary Range Filter -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">ช่วงเงินเดือน</label>
+                            <select id="salaryRangeFilter" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">ทุกช่วง</option>
+                                <option value="0-20000">ต่ำกว่า 20,000 บาท</option>
+                                <option value="20000-30000">20,000 - 30,000 บาท</option>
+                                <option value="30000-40000">30,000 - 40,000 บาท</option>
+                                <option value="40000-50000">40,000 - 50,000 บาท</option>
+                                <option value="50000-999999">มากกว่า 50,000 บาท</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Date Range Filter -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">วันที่เริ่มรับสมัคร (จาก)</label>
+                            <input type="date" id="startDateFilter" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">วันที่เริ่มรับสมัคร (ถึง)</label>
+                            <input type="date" id="endDateFilter" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                    </div>
+                    
+                    <!-- Search Results Summary -->
+                    <div id="searchSummary" class="mt-4 p-3 bg-blue-50 rounded-lg hidden">
+                        <div class="flex items-center justify-between">
+                            <span class="text-blue-800 font-medium">ผลการค้นหา: <span id="resultCount">0</span> รายการ</span>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-sm text-blue-600">เรียงตาม:</span>
+                                <select id="sortBy" class="text-sm border border-blue-300 rounded px-2 py-1 focus:ring-1 focus:ring-blue-500">
+                                    <option value="date-desc">วันที่ล่าสุด</option>
+                                    <option value="date-asc">วันที่เก่าสุด</option>
+                                    <option value="views-desc">ยอดดูมากสุด</option>
+                                    <option value="title-asc">ชื่อ A-Z</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -802,6 +1169,276 @@
             </div>
         </div>
 
+        <!-- Transfer News Page -->
+        <div id="transferNewsPage" class="page-content hidden">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">ข่าวเกี่ยวกับการโอนย้าย</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Transfer News Cards -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-4">
+                        <span class="px-3 py-1 text-xs font-medium rounded-full bg-white bg-opacity-20 text-white">ข่าวล่าสุด</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">แนวทางการโอนย้ายข้าราชการ ปี 2568</h3>
+                        <p class="text-gray-600 text-sm mb-4">กรมการปกครองได้ออกแนวทางใหม่สำหรับการโอนย้ายข้าราชการในปี 2568 เพื่อให้เกิดความโปร่งใสและเป็นธรรม...</p>
+                        <div class="border-t pt-4 mt-4">
+                            <div class="flex justify-between items-center text-xs text-gray-500">
+                                <span>📅 15 ธันวาคม 2567</span>
+                                <span>👁️ 1,245 ครั้ง</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden">
+                    <div class="bg-gradient-to-r from-green-500 to-green-600 p-4">
+                        <span class="px-3 py-1 text-xs font-medium rounded-full bg-white bg-opacity-20 text-white">ข่าวสำคัญ</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">เปิดรับสมัครโอนย้ายข้าราชการ ครั้งที่ 1/2568</h3>
+                        <p class="text-gray-600 text-sm mb-4">สำนักงาน ก.พ. ประกาศเปิดรับสมัครโอนย้ายข้าราชการพลเรือนสามัญ ครั้งที่ 1 ประจำปี 2568...</p>
+                        <div class="border-t pt-4 mt-4">
+                            <div class="flex justify-between items-center text-xs text-gray-500">
+                                <span>📅 10 ธันวาคม 2567</span>
+                                <span>👁️ 2,156 ครั้ง</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden">
+                    <div class="bg-gradient-to-r from-purple-500 to-purple-600 p-4">
+                        <span class="px-3 py-1 text-xs font-medium rounded-full bg-white bg-opacity-20 text-white">ข่าวทั่วไป</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3">ข้อควรรู้เกี่ยวกับการโอนย้ายข้าราชการ</h3>
+                        <p class="text-gray-600 text-sm mb-4">สิ่งที่ข้าราชการควรทราบก่อนตัดสินใจขอโอนย้าย รวมถึงสิทธิประโยชน์และข้อจำกัดต่างๆ...</p>
+                        <div class="border-t pt-4 mt-4">
+                            <div class="flex justify-between items-center text-xs text-gray-500">
+                                <span>📅 5 ธันวาคม 2567</span>
+                                <span>👁️ 987 ครั้ง</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Laws and Regulations Page -->
+        <div id="lawsRegulationsPage" class="page-content hidden">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">กฎหมาย ระเบียบที่เกี่ยวข้อง</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Laws and Regulations Cards -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-2xl">⚖️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">พระราชบัญญัติระเบียบข้าราชการพลเรือน</h3>
+                            <p class="text-sm text-gray-600">พ.ศ. 2551</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">กฎหมายหลักที่ควบคุมการบริหารงานบุคคลของข้าราชการพลเรือน รวมถึงการโอนย้าย</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium">📄 ดาวน์โหลด PDF</a>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-2xl">📋</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">ระเบียบ ก.พ. ว่าด้วยการโอนย้าย</h3>
+                            <p class="text-sm text-gray-600">ฉบับปรับปรุง พ.ศ. 2567</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">ระเบียบเฉพาะเกี่ยวกับการโอนย้ายข้าราชการ หลักเกณฑ์ วิธีการ และเงื่อนไข</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium">📄 ดาวน์โหลด PDF</a>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-2xl">📜</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">หนังสือเวียนแนวทางการปฏิบัติ</h3>
+                            <p class="text-sm text-gray-600">ฉบับล่าสุด พ.ศ. 2567</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">แนวทางการปฏิบัติในการพิจารณาคำขอโอนย้าย และกรณีต่างๆ ที่เกิดขึ้น</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium">📄 ดาวน์โหลด PDF</a>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-2xl">🏛️</span>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800">ระเบียบข้าราชการท้องถิ่น</h3>
+                            <p class="text-sm text-gray-600">เกี่ยวกับการโอนย้าย</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">ระเบียบเฉพาะสำหรับข้าราชการท้องถิ่น การโอนย้ายระหว่างองค์กรปกครองส่วนท้องถิ่น</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium">📄 ดาวน์โหลด PDF</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Document Guide Page -->
+        <div id="documentGuidePage" class="page-content hidden">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">บทความแนะนำการเตรียมเอกสาร</h2>
+            </div>
+            
+            <div class="space-y-8">
+                <!-- Document Preparation Guide -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">📋 คู่มือการเตรียมเอกสารสำหรับการโอนย้าย</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-800 mb-4">เอกสารพื้นฐานที่จำเป็น</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-green-600 mr-3 mt-1">✓</span>
+                                    <div>
+                                        <strong>ใบสมัครโอนย้าย</strong>
+                                        <p class="text-sm text-gray-600">กรอกข้อมูลให้ครบถ้วนและถูกต้อง</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-600 mr-3 mt-1">✓</span>
+                                    <div>
+                                        <strong>สำเนาบัตรประชาชน</strong>
+                                        <p class="text-sm text-gray-600">รับรองสำเนาถูกต้อง</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-600 mr-3 mt-1">✓</span>
+                                    <div>
+                                        <strong>สำเนาทะเบียนบ้าน</strong>
+                                        <p class="text-sm text-gray-600">หน้าแรกและหน้าที่มีชื่อผู้สมัคร</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-600 mr-3 mt-1">✓</span>
+                                    <div>
+                                        <strong>หลักฐานการศึกษา</strong>
+                                        <p class="text-sm text-gray-600">ปริญญาบัตรและใบรายงานผลการศึกษา</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-800 mb-4">เอกสารเพิ่มเติม</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-blue-600 mr-3 mt-1">•</span>
+                                    <div>
+                                        <strong>ประวัติการทำงาน</strong>
+                                        <p class="text-sm text-gray-600">รายละเอียดตำแหน่งและหน้าที่</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-600 mr-3 mt-1">•</span>
+                                    <div>
+                                        <strong>ใบรับรองแพทย์</strong>
+                                        <p class="text-sm text-gray-600">กรณีขอโอนย้ายด้วยเหตุสุขภาพ</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-600 mr-3 mt-1">•</span>
+                                    <div>
+                                        <strong>หนังสือยินยอมจากหน่วยงาน</strong>
+                                        <p class="text-sm text-gray-600">จากหน่วยงานต้นสังกัด</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-600 mr-3 mt-1">•</span>
+                                    <div>
+                                        <strong>เอกสารอื่นๆ</strong>
+                                        <p class="text-sm text-gray-600">ตามที่หน่วยงานปลายทางกำหนด</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tips and Tricks -->
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">💡 เคล็ดลับการเตรียมเอกสาร</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white rounded-lg p-6 shadow-md">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                                <span class="text-2xl">📝</span>
+                            </div>
+                            <h4 class="font-bold text-gray-800 mb-2">เตรียมล่วงหน้า</h4>
+                            <p class="text-sm text-gray-600">เตรียมเอกสารล่วงหน้าอย่างน้อย 1 เดือน เพื่อให้มีเวลาแก้ไขหากมีปัญหา</p>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-6 shadow-md">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                                <span class="text-2xl">📋</span>
+                            </div>
+                            <h4 class="font-bold text-gray-800 mb-2">ตรวจสอบความถูกต้อง</h4>
+                            <p class="text-sm text-gray-600">ตรวจสอบข้อมูลทุกรายการให้ถูกต้อง เพื่อหลีกเลี่ยงการส่งคืนเอกสาร</p>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg p-6 shadow-md">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                                <span class="text-2xl">📞</span>
+                            </div>
+                            <h4 class="font-bold text-gray-800 mb-2">สอบถามข้อมูล</h4>
+                            <p class="text-sm text-gray-600">ติดต่อสอบถามหน่วยงานปลายทางหากมีข้อสงสัยเกี่ยวกับเอกสาร</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Common Mistakes -->
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">⚠️ ข้อผิดพลาดที่พบบ่อย</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start p-4 bg-red-50 rounded-lg">
+                            <span class="text-red-500 mr-3 mt-1">❌</span>
+                            <div>
+                                <strong class="text-red-800">ลืมรับรองสำเนาถูกต้อง</strong>
+                                <p class="text-sm text-red-700 mt-1">เอกสารสำเนาทุกฉบับต้องมีการรับรองสำเนาถูกต้อง</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start p-4 bg-red-50 rounded-lg">
+                            <span class="text-red-500 mr-3 mt-1">❌</span>
+                            <div>
+                                <strong class="text-red-800">กรอกข้อมูลไม่ครบถ้วน</strong>
+                                <p class="text-sm text-red-700 mt-1">ตรวจสอบให้แน่ใจว่ากรอกข้อมูลในใบสมัครครบทุกช่อง</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start p-4 bg-red-50 rounded-lg">
+                            <span class="text-red-500 mr-3 mt-1">❌</span>
+                            <div>
+                                <strong class="text-red-800">ส่งเอกสารหลังกำหนด</strong>
+                                <p class="text-sm text-red-700 mt-1">ตรวจสอบวันที่ปิดรับสมัครและส่งเอกสารให้ทันเวลา</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Admin Page -->
         <div id="adminPage" class="page-content hidden">
             <h2 class="text-3xl font-bold text-white mb-8">แอดมิน - จัดการระบบ</h2>
@@ -885,6 +1522,11 @@
                 <div class="col-span-1 md:col-span-2">
                     <h3 class="text-xl font-bold mb-4">แพลตฟอร์มประกาศรับโอนย้าย</h3>
                     <p class="text-gray-300 mb-4">ศูนย์กลางสำหรับหน่วยงานราชการที่ต้องการรับโอนย้ายข้าราชการ</p>
+                    <div class="pt-2">
+                        <button id="adminLoginBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center">
+                            🔐 เข้าสู่ระบบแอดมิน
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Main Menu -->
@@ -893,8 +1535,9 @@
                     <ul class="space-y-2 text-gray-300">
                         <li><a href="#" onclick="showPage('home')" class="hover:text-white transition-colors cursor-pointer">หน้าหลัก</a></li>
                         <li><a href="#" onclick="showPage('allNews')" class="hover:text-white transition-colors cursor-pointer">ประกาศทั้งหมด</a></li>
-                        <li><a href="#" onclick="showPage('examPass')" class="hover:text-white transition-colors cursor-pointer">สอบผ่าน กพ.</a></li>
-                        <li><a href="#" onclick="showPage('examNotPass')" class="hover:text-white transition-colors cursor-pointer">สอบไม่ผ่าน กพ.</a></li>
+                        <li><a href="#" onclick="showPage('transferNews')" class="hover:text-white transition-colors cursor-pointer">ข่าวเกี่ยวกับการโอนย้าย</a></li>
+                        <li><a href="#" onclick="showPage('lawsRegulations')" class="hover:text-white transition-colors cursor-pointer">กฎหมาย ระเบียบ</a></li>
+                        <li><a href="#" onclick="showPage('documentGuide')" class="hover:text-white transition-colors cursor-pointer">คู่มือเตรียมเอกสาร</a></li>
                         <li>
                             <div class="relative group">
                                 <a href="#" class="hover:text-white transition-colors cursor-pointer">หน่วยงาน</a>
@@ -922,24 +1565,49 @@
                     </ul>
                 </div>
 
-                <!-- Help Section -->
+                <!-- Contact Section -->
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">ช่วยเหลือ</h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="#" onclick="alert('คู่มือการใช้งานจะเปิดในหน้าต่างใหม่')" class="hover:text-white transition-colors cursor-pointer">คู่มือการใช้งาน</a></li>
-                        <li><a href="#" onclick="alert('หน้าคำถามที่พบบ่อยกำลังพัฒนา')" class="hover:text-white transition-colors cursor-pointer">คำถามที่พบบ่อย</a></li>
-                        <li><a href="mailto:support@gov-transfer.go.th" class="hover:text-white transition-colors">ติดต่อเรา</a></li>
-                        <li><a href="#" onclick="alert('กรุณาส่งรายงานปัญหาไปที่ support@gov-transfer.go.th')" class="hover:text-white transition-colors cursor-pointer">รายงานปัญหา</a></li>
-                        <li class="pt-2">
-                            <button id="adminLoginBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center">
-                                🔐 เข้าสู่ระบบแอดมิน
-                            </button>
-                        </li>
-                    </ul>
+                    <h4 class="text-lg font-semibold mb-4">ติดต่อเรา</h4>
+                    <div class="space-y-3 text-gray-300">
+                        <div class="flex items-start">
+                            <span class="text-blue-400 mr-3 mt-1">📍</span>
+                            <div>
+                                <p class="font-medium">ที่อยู่</p>
+                                <p class="text-sm">123 ถนนราชดำเนิน เขตพระนคร<br>กรุงเทพมหานคร 10200</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <span class="text-green-400 mr-3">📧</span>
+                            <div>
+                                <p class="font-medium">อีเมล</p>
+                                <a href="mailto:info@gov-transfer.go.th" class="text-sm hover:text-white transition-colors">info@gov-transfer.go.th</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <span class="text-yellow-400 mr-3">📞</span>
+                            <div>
+                                <p class="font-medium">เบอร์โทร</p>
+                                <p class="text-sm">02-123-4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <span class="text-purple-400 mr-3 mt-1">🕒</span>
+                            <div>
+                                <p class="font-medium">เวลาทำการ</p>
+                                <p class="text-sm">จันทร์ - ศุกร์<br>08:30 - 16:30 น.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-
+            <!-- Copyright -->
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2567 ระบบโอนย้ายข้าราชการ. สงวนลิขสิทธิ์.</p>
+            </div>
         </div>
     </footer>
 
@@ -1531,15 +2199,37 @@
                                         <label class="text-sm font-medium text-gray-600">ประเภทการสอบ</label>
                                         <p class="text-gray-800 font-semibold">${news.examType === 'pass' ? 'ผ่าน กพ.' : 'ไม่ผ่าน กพ.'}</p>
                                     </div>
+                                    <div>
+                                        <label class="text-sm font-medium text-gray-600">เงินเดือน</label>
+                                        <p class="text-gray-800 font-semibold">${news.salary || 'ไม่ระบุ'}</p>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-medium text-gray-600">ประเภทหน่วยงาน</label>
+                                        <p class="text-gray-800 font-semibold">${getAgencyTypeText(news.agencyType) || 'ไม่ระบุ'}</p>
+                                    </div>
                                 </div>
                             </div>
 
                             <div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-4">รายละเอียด</h3>
-                                <div class="prose max-w-none">
-                                    <p class="text-gray-700 whitespace-pre-line">${news.content}</p>
+                                <h3 class="text-xl font-bold text-gray-800 mb-4">คุณสมบัติที่ต้องการ</h3>
+                                <div class="bg-white border rounded-lg p-4">
+                                    <p class="text-gray-700 whitespace-pre-line">${news.qualifications || 'ไม่ระบุ'}</p>
                                 </div>
                             </div>
+
+                            ${news.documents ? `<div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-4">เอกสารที่ต้องใช้ในการสมัคร</h3>
+                                <div class="bg-white border rounded-lg p-4">
+                                    <p class="text-gray-700 whitespace-pre-line">${news.documents}</p>
+                                </div>
+                            </div>` : ''}
+
+                            ${news.additionalInfo ? `<div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-4">ข้อมูลเพิ่มเติม</h3>
+                                <div class="bg-white border rounded-lg p-4">
+                                    <p class="text-gray-700 whitespace-pre-line">${news.additionalInfo}</p>
+                                </div>
+                            </div>` : ''}
                         </div>
 
                         <!-- Sidebar -->
@@ -1555,14 +2245,22 @@
                                         <label class="text-sm font-medium text-gray-600">สิ้นสุดการรับสมัคร</label>
                                         <p class="text-gray-800 font-semibold">${formatDateThai(news.endDate)}</p>
                                     </div>` : ''}
+                                    ${news.examDate ? `<div>
+                                        <label class="text-sm font-medium text-gray-600">วันที่สอบ</label>
+                                        <p class="text-gray-800 font-semibold">${formatDateThai(news.examDate)}</p>
+                                    </div>` : ''}
                                 </div>
                             </div>
 
                             <div class="bg-green-50 rounded-lg p-6">
                                 <h4 class="font-bold text-gray-800 mb-4">📞 ติดต่อสอบถาม</h4>
                                 <div class="space-y-2">
-                                    <p class="text-gray-700">${news.agencyName || news.author}</p>
-                                    <p class="text-sm text-gray-600">หน่วยงาน: ${news.agencyType || 'ไม่ระบุ'}</p>
+                                    <p class="text-gray-700 font-semibold">${news.agencyName || news.author}</p>
+                                    <p class="text-sm text-gray-600">หน่วยงาน: ${getAgencyTypeText(news.agencyType) || 'ไม่ระบุ'}</p>
+                                    ${news.province ? `<p class="text-sm text-gray-600">จังหวัด: ${news.province}</p>` : ''}
+                                    ${news.contactPerson ? `<p class="text-sm text-gray-600">ผู้ติดต่อ: ${news.contactPerson}</p>` : ''}
+                                    ${news.phone ? `<p class="text-sm text-gray-600">โทรศัพท์: ${news.phone}</p>` : ''}
+                                    ${news.email ? `<p class="text-sm text-gray-600">อีเมล: ${news.email}</p>` : ''}
                                 </div>
                             </div>
 
@@ -1617,15 +2315,44 @@
                                         <label class="text-sm font-medium text-gray-600">ประเภทหน่วยงาน</label>
                                         <p class="text-gray-800 font-semibold">${getAgencyTypeText(news.agencyType) || 'ไม่ระบุ'}</p>
                                     </div>
+                                    <div>
+                                        <label class="text-sm font-medium text-gray-600">เงินเดือน</label>
+                                        <p class="text-gray-800 font-semibold">${news.salary || 'ไม่ระบุ'}</p>
+                                    </div>
+                                    <div>
+                                        <label class="text-sm font-medium text-gray-600">วิธีการสมัคร</label>
+                                        <p class="text-gray-800 font-semibold">${getApplicationMethodText(news.applicationMethod) || 'ไม่ระบุ'}</p>
+                                    </div>
                                 </div>
                             </div>
 
                             <div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-4">รายละเอียด</h3>
-                                <div class="prose max-w-none">
-                                    <p class="text-gray-700 whitespace-pre-line">${news.content}</p>
+                                <h3 class="text-xl font-bold text-gray-800 mb-4">คุณสมบัติที่ต้องการ</h3>
+                                <div class="bg-white border rounded-lg p-4">
+                                    <p class="text-gray-700 whitespace-pre-line">${news.qualifications || 'ไม่ระบุ'}</p>
                                 </div>
                             </div>
+
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-4">หน้าที่ความรับผิดชอบ</h3>
+                                <div class="bg-white border rounded-lg p-4">
+                                    <p class="text-gray-700 whitespace-pre-line">${news.responsibilities || 'ไม่ระบุ'}</p>
+                                </div>
+                            </div>
+
+                            ${news.documents ? `<div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-4">เอกสารที่ต้องใช้ในการสมัคร</h3>
+                                <div class="bg-white border rounded-lg p-4">
+                                    <p class="text-gray-700 whitespace-pre-line">${news.documents}</p>
+                                </div>
+                            </div>` : ''}
+
+                            ${news.additionalInfo ? `<div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-4">ข้อมูลเพิ่มเติม</h3>
+                                <div class="bg-white border rounded-lg p-4">
+                                    <p class="text-gray-700 whitespace-pre-line">${news.additionalInfo}</p>
+                                </div>
+                            </div>` : ''}
                         </div>
 
                         <!-- Sidebar -->
@@ -1641,14 +2368,22 @@
                                         <label class="text-sm font-medium text-gray-600">สิ้นสุดการรับสมัคร</label>
                                         <p class="text-gray-800 font-semibold">${formatDateThai(news.endDate)}</p>
                                     </div>` : ''}
+                                    ${news.startWorkDate ? `<div>
+                                        <label class="text-sm font-medium text-gray-600">คาดว่าจะเริ่มงาน</label>
+                                        <p class="text-gray-800 font-semibold">${formatDateThai(news.startWorkDate)}</p>
+                                    </div>` : ''}
                                 </div>
                             </div>
 
                             <div class="bg-green-50 rounded-lg p-6">
                                 <h4 class="font-bold text-gray-800 mb-4">📞 ติดต่อสอบถาม</h4>
                                 <div class="space-y-2">
-                                    <p class="text-gray-700">${news.agencyName || news.author}</p>
+                                    <p class="text-gray-700 font-semibold">${news.agencyName || news.author}</p>
                                     <p class="text-sm text-gray-600">หน่วยงาน: ${getAgencyTypeText(news.agencyType) || 'ไม่ระบุ'}</p>
+                                    ${news.province ? `<p class="text-sm text-gray-600">จังหวัด: ${news.province}</p>` : ''}
+                                    ${news.contactPerson ? `<p class="text-sm text-gray-600">ผู้ติดต่อ: ${news.contactPerson}</p>` : ''}
+                                    ${news.phone ? `<p class="text-sm text-gray-600">โทรศัพท์: ${news.phone}</p>` : ''}
+                                    ${news.email ? `<p class="text-sm text-gray-600">อีเมล: ${news.email}</p>` : ''}
                                 </div>
                             </div>
 
@@ -2027,23 +2762,85 @@
             }
         }
 
-        // Search and filter
+        // Advanced search and filter
         function filterNews() {
             const category = document.getElementById('categoryFilter').value;
             const searchTerm = document.getElementById('searchNews').value.toLowerCase();
+            const province = document.getElementById('provinceFilter').value;
+            const positionLevel = document.getElementById('positionLevelFilter').value;
+            const agencyType = document.getElementById('agencyTypeFilter').value;
+            const salaryRange = document.getElementById('salaryRangeFilter').value;
+            const startDateFilter = document.getElementById('startDateFilter').value;
+            const endDateFilter = document.getElementById('endDateFilter').value;
+            const sortBy = document.getElementById('sortBy').value;
             
             let filtered = getApprovedNews();
             
+            // Category filter
             if (category) {
                 filtered = filtered.filter(news => news.category === category);
             }
             
+            // Text search
             if (searchTerm) {
                 filtered = filtered.filter(news => 
                     news.title.toLowerCase().includes(searchTerm) ||
-                    news.content.toLowerCase().includes(searchTerm)
+                    news.content.toLowerCase().includes(searchTerm) ||
+                    (news.agencyName && news.agencyName.toLowerCase().includes(searchTerm)) ||
+                    (news.position && news.position.toLowerCase().includes(searchTerm))
                 );
             }
+            
+            // Province filter
+            if (province) {
+                filtered = filtered.filter(news => news.province === province);
+            }
+            
+            // Position level filter
+            if (positionLevel) {
+                filtered = filtered.filter(news => news.positionLevel === positionLevel);
+            }
+            
+            // Agency type filter
+            if (agencyType) {
+                filtered = filtered.filter(news => news.agencyType === agencyType);
+            }
+            
+            // Salary range filter
+            if (salaryRange) {
+                const [minSalary, maxSalary] = salaryRange.split('-').map(Number);
+                filtered = filtered.filter(news => {
+                    if (!news.salary) return false;
+                    
+                    // Extract numbers from salary string
+                    const salaryNumbers = news.salary.match(/\d+/g);
+                    if (!salaryNumbers) return false;
+                    
+                    const salary = parseInt(salaryNumbers[0]);
+                    return salary >= minSalary && salary <= maxSalary;
+                });
+            }
+            
+            // Date range filter
+            if (startDateFilter) {
+                filtered = filtered.filter(news => {
+                    if (!news.startDate) return false;
+                    return new Date(news.startDate) >= new Date(startDateFilter);
+                });
+            }
+            
+            if (endDateFilter) {
+                filtered = filtered.filter(news => {
+                    if (!news.startDate) return false;
+                    return new Date(news.startDate) <= new Date(endDateFilter);
+                });
+            }
+            
+            // Sort results
+            filtered = sortResults(filtered, sortBy);
+            
+            // Update result count
+            updateSearchSummary(filtered.length);
             
             const container = document.getElementById('newsList');
             
@@ -2051,14 +2848,247 @@
                 container.innerHTML = `
                     <div class="col-span-full text-center py-12">
                         <div class="text-gray-400 text-6xl mb-4">🔍</div>
-                        <h3 class="text-xl font-semibold text-gray-600 mb-2">ไม่พบประกาศที่ค้นหา</h3>
-                        <p class="text-gray-500">ลองเปลี่ยนคำค้นหาหรือหมวดหมู่</p>
+                        <h3 class="text-xl font-semibold text-gray-600 mb-2">ไม่พบประกาศที่ตรงกับเงื่อนไขการค้นหา</h3>
+                        <p class="text-gray-500">ลองปรับเปลี่ยนเงื่อนไขการค้นหาหรือล้างตัวกรอง</p>
+                        <button onclick="clearAllFilters()" class="mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            ล้างตัวกรองทั้งหมด
+                        </button>
                     </div>
                 `;
                 return;
             }
             
             container.innerHTML = filtered.map(news => createNewsCard(news)).join('');
+        }
+        
+        // Sort results function
+        function sortResults(results, sortBy) {
+            switch (sortBy) {
+                case 'date-desc':
+                    return results.sort((a, b) => new Date(b.date) - new Date(a.date));
+                case 'date-asc':
+                    return results.sort((a, b) => new Date(a.date) - new Date(b.date));
+                case 'views-desc':
+                    return results.sort((a, b) => (b.views || 0) - (a.views || 0));
+                case 'title-asc':
+                    return results.sort((a, b) => a.title.localeCompare(b.title, 'th'));
+                default:
+                    return results;
+            }
+        }
+        
+        // Update search summary
+        function updateSearchSummary(count) {
+            const summary = document.getElementById('searchSummary');
+            const resultCount = document.getElementById('resultCount');
+            
+            resultCount.textContent = count;
+            
+            if (count > 0 || hasActiveFilters()) {
+                summary.classList.remove('hidden');
+            } else {
+                summary.classList.add('hidden');
+            }
+        }
+        
+        // Check if any filters are active
+        function hasActiveFilters() {
+            return document.getElementById('categoryFilter').value ||
+                   document.getElementById('searchNews').value ||
+                   document.getElementById('provinceFilter').value ||
+                   document.getElementById('positionLevelFilter').value ||
+                   document.getElementById('agencyTypeFilter').value ||
+                   document.getElementById('salaryRangeFilter').value ||
+                   document.getElementById('startDateFilter').value ||
+                   document.getElementById('endDateFilter').value;
+        }
+        
+        // Clear all filters
+        function clearAllFilters() {
+            document.getElementById('categoryFilter').value = '';
+            document.getElementById('searchNews').value = '';
+            document.getElementById('provinceFilter').value = '';
+            document.getElementById('positionLevelFilter').value = '';
+            document.getElementById('agencyTypeFilter').value = '';
+            document.getElementById('salaryRangeFilter').value = '';
+            document.getElementById('startDateFilter').value = '';
+            document.getElementById('endDateFilter').value = '';
+            document.getElementById('sortBy').value = 'date-desc';
+            
+            // Hide advanced filters
+            const advancedFilters = document.getElementById('advancedFilters');
+            const toggleText = document.getElementById('toggleText');
+            const toggleIcon = document.getElementById('toggleIcon');
+            
+            advancedFilters.classList.add('hidden');
+            toggleText.textContent = 'แสดงตัวกรองเพิ่มเติม';
+            toggleIcon.textContent = '▼';
+            
+            // Reload all news
+            loadAllNews();
+        }
+        
+        // Toggle advanced search
+        function toggleAdvancedSearch() {
+            const advancedFilters = document.getElementById('advancedFilters');
+            const toggleText = document.getElementById('toggleText');
+            const toggleIcon = document.getElementById('toggleIcon');
+            
+            if (advancedFilters.classList.contains('hidden')) {
+                advancedFilters.classList.remove('hidden');
+                toggleText.textContent = 'ซ่อนตัวกรองเพิ่มเติม';
+                toggleIcon.textContent = '▲';
+            } else {
+                advancedFilters.classList.add('hidden');
+                toggleText.textContent = 'แสดงตัวกรองเพิ่มเติม';
+                toggleIcon.textContent = '▼';
+            }
+        }
+
+        // Home page search functions
+        function filterHomeNews() {
+            const category = document.getElementById('homeCategoryFilter').value;
+            const searchTerm = document.getElementById('homeSearchNews').value.toLowerCase();
+            const province = document.getElementById('homeProvinceFilter').value;
+            const positionLevel = document.getElementById('homePositionLevelFilter').value;
+            const agencyType = document.getElementById('homeAgencyTypeFilter').value;
+            const salaryRange = document.getElementById('homeSalaryRangeFilter').value;
+            const sortBy = document.getElementById('homeSortBy').value;
+            
+            let filtered = getApprovedNews();
+            
+            // Category filter
+            if (category) {
+                filtered = filtered.filter(news => news.category === category);
+            }
+            
+            // Text search
+            if (searchTerm) {
+                filtered = filtered.filter(news => 
+                    news.title.toLowerCase().includes(searchTerm) ||
+                    news.content.toLowerCase().includes(searchTerm) ||
+                    (news.agencyName && news.agencyName.toLowerCase().includes(searchTerm)) ||
+                    (news.position && news.position.toLowerCase().includes(searchTerm))
+                );
+            }
+            
+            // Province filter
+            if (province) {
+                filtered = filtered.filter(news => news.province === province);
+            }
+            
+            // Position level filter
+            if (positionLevel) {
+                filtered = filtered.filter(news => news.positionLevel === positionLevel);
+            }
+            
+            // Agency type filter
+            if (agencyType) {
+                filtered = filtered.filter(news => news.agencyType === agencyType);
+            }
+            
+            // Salary range filter
+            if (salaryRange) {
+                const [minSalary, maxSalary] = salaryRange.split('-').map(Number);
+                filtered = filtered.filter(news => {
+                    if (!news.salary) return false;
+                    
+                    // Extract numbers from salary string
+                    const salaryNumbers = news.salary.match(/\d+/g);
+                    if (!salaryNumbers) return false;
+                    
+                    const salary = parseInt(salaryNumbers[0]);
+                    return salary >= minSalary && salary <= maxSalary;
+                });
+            }
+            
+            // Sort results
+            filtered = sortResults(filtered, sortBy);
+            
+            // Update result count
+            updateHomeSearchSummary(filtered.length);
+            
+            const container = document.getElementById('recentAnnouncementCards');
+            
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <div class="text-gray-400 text-6xl mb-4">🔍</div>
+                        <h3 class="text-xl font-semibold text-gray-600 mb-2">ไม่พบประกาศที่ตรงกับเงื่อนไขการค้นหา</h3>
+                        <p class="text-gray-500">ลองปรับเปลี่ยนเงื่อนไขการค้นหาหรือล้างตัวกรอง</p>
+                        <button onclick="clearHomeFilters()" class="mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            ล้างตัวกรองทั้งหมด
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = filtered.map(news => createNewsCard(news)).join('');
+        }
+        
+        // Update home search summary
+        function updateHomeSearchSummary(count) {
+            const summary = document.getElementById('homeSearchSummary');
+            const resultCount = document.getElementById('homeResultCount');
+            
+            resultCount.textContent = count;
+            
+            if (count > 0 || hasHomeActiveFilters()) {
+                summary.classList.remove('hidden');
+            } else {
+                summary.classList.add('hidden');
+            }
+        }
+        
+        // Check if any home filters are active
+        function hasHomeActiveFilters() {
+            return document.getElementById('homeCategoryFilter').value ||
+                   document.getElementById('homeSearchNews').value ||
+                   document.getElementById('homeProvinceFilter').value ||
+                   document.getElementById('homePositionLevelFilter').value ||
+                   document.getElementById('homeAgencyTypeFilter').value ||
+                   document.getElementById('homeSalaryRangeFilter').value;
+        }
+        
+        // Clear home filters
+        function clearHomeFilters() {
+            document.getElementById('homeCategoryFilter').value = '';
+            document.getElementById('homeSearchNews').value = '';
+            document.getElementById('homeProvinceFilter').value = '';
+            document.getElementById('homePositionLevelFilter').value = '';
+            document.getElementById('homeAgencyTypeFilter').value = '';
+            document.getElementById('homeSalaryRangeFilter').value = '';
+            document.getElementById('homeSortBy').value = 'date-desc';
+            
+            // Hide advanced filters
+            const advancedFilters = document.getElementById('homeAdvancedFilters');
+            const toggleText = document.getElementById('toggleHomeText');
+            const toggleIcon = document.getElementById('toggleHomeIcon');
+            
+            advancedFilters.classList.add('hidden');
+            toggleText.textContent = 'แสดงตัวกรองเพิ่มเติม';
+            toggleIcon.textContent = '▼';
+            
+            // Reload recent news
+            loadRecentNews();
+        }
+        
+        // Toggle home advanced search
+        function toggleHomeAdvancedSearch() {
+            const advancedFilters = document.getElementById('homeAdvancedFilters');
+            const toggleText = document.getElementById('toggleHomeText');
+            const toggleIcon = document.getElementById('toggleHomeIcon');
+            
+            if (advancedFilters.classList.contains('hidden')) {
+                advancedFilters.classList.remove('hidden');
+                toggleText.textContent = 'ซ่อนตัวกรองเพิ่มเติม';
+                toggleIcon.textContent = '▲';
+            } else {
+                advancedFilters.classList.add('hidden');
+                toggleText.textContent = 'แสดงตัวกรองเพิ่มเติม';
+                toggleIcon.textContent = '▼';
+            }
         }
 
         // Event Listeners
@@ -2092,6 +3122,11 @@
         // Post menu items
         document.getElementById('postExamBtn').addEventListener('click', () => showPage('postExam'));
         document.getElementById('postTransferBtn').addEventListener('click', () => showPage('postTransfer'));
+        
+        // News/Articles menu items
+        document.getElementById('transferNewsBtn').addEventListener('click', () => showPage('transferNews'));
+        document.getElementById('lawsRegulationsBtn').addEventListener('click', () => showPage('lawsRegulations'));
+        document.getElementById('documentGuideBtn').addEventListener('click', () => showPage('documentGuide'));
 
         // Modal controls (removed old addNewsBtn listener)
 
@@ -2143,6 +3178,39 @@
                 filterNews();
             }
         });
+        
+        // Advanced search controls
+        document.getElementById('toggleAdvancedSearch').addEventListener('click', toggleAdvancedSearch);
+        document.getElementById('clearFilters').addEventListener('click', clearAllFilters);
+        
+        // Advanced filter event listeners
+        document.getElementById('provinceFilter').addEventListener('change', filterNews);
+        document.getElementById('positionLevelFilter').addEventListener('change', filterNews);
+        document.getElementById('agencyTypeFilter').addEventListener('change', filterNews);
+        document.getElementById('salaryRangeFilter').addEventListener('change', filterNews);
+        document.getElementById('startDateFilter').addEventListener('change', filterNews);
+        document.getElementById('endDateFilter').addEventListener('change', filterNews);
+        document.getElementById('sortBy').addEventListener('change', filterNews);
+
+        // Home page search functionality
+        document.getElementById('homeSearchBtn').addEventListener('click', filterHomeNews);
+        document.getElementById('homeCategoryFilter').addEventListener('change', filterHomeNews);
+        document.getElementById('homeSearchNews').addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                filterHomeNews();
+            }
+        });
+        
+        // Home advanced search controls
+        document.getElementById('toggleHomeAdvancedSearch').addEventListener('click', toggleHomeAdvancedSearch);
+        document.getElementById('homeClearFilters').addEventListener('click', clearHomeFilters);
+        
+        // Home advanced filter event listeners
+        document.getElementById('homeProvinceFilter').addEventListener('change', filterHomeNews);
+        document.getElementById('homePositionLevelFilter').addEventListener('change', filterHomeNews);
+        document.getElementById('homeAgencyTypeFilter').addEventListener('change', filterHomeNews);
+        document.getElementById('homeSalaryRangeFilter').addEventListener('change', filterHomeNews);
+        document.getElementById('homeSortBy').addEventListener('change', filterHomeNews);
 
         // Admin buttons
         document.getElementById('pendingNewsBtn').addEventListener('click', () => showPage('pendingNews'));
@@ -2192,14 +3260,22 @@
             // Get required fields
             const agencyName = formData.get('agencyName');
             const agencyType = formData.get('agencyType');
+            const province = form.querySelector('select[required]').value;
+            const contactPerson = form.querySelector('input[placeholder="ชื่อ-นามสกุล ผู้ติดต่อ"]').value;
+            const phone = form.querySelector('input[type="tel"]').value;
+            const email = form.querySelector('input[type="email"]').value;
             const position = form.querySelector('input[placeholder="เช่น นักวิชาการปกครองชำนาญการ"]').value;
-            const positionLevel = form.querySelectorAll('select[required]')[0].value;
+            const positionLevel = form.querySelectorAll('select[required]')[1].value;
             const quantity = form.querySelector('input[type="number"]').value;
+            const salary = form.querySelector('input[placeholder="เช่น 25,000 - 35,000 บาท"]').value;
             const qualifications = form.querySelector('textarea[required]').value;
             const responsibilities = form.querySelectorAll('textarea[required]')[1].value;
             const startDate = form.querySelectorAll('input[type="date"]')[0].value;
             const endDate = form.querySelectorAll('input[type="date"]')[1].value;
-            const applicationMethod = form.querySelectorAll('select[required]')[1].value;
+            const startWorkDate = form.querySelectorAll('input[type="date"]')[2].value;
+            const applicationMethod = form.querySelectorAll('select[required]')[2].value;
+            const documents = form.querySelectorAll('textarea')[2].value;
+            const additionalInfo = form.querySelectorAll('textarea')[3].value;
             
             // Get links
             const fullLink = document.getElementById('transferFullLink').value;
@@ -2214,7 +3290,7 @@
             });
             
             // Validate required fields
-            if (!agencyName || !agencyType || !position || !positionLevel || !quantity || !qualifications || !responsibilities || !startDate || !endDate || !applicationMethod) {
+            if (!agencyName || !agencyType || !province || !contactPerson || !phone || !email || !position || !positionLevel || !quantity || !qualifications || !responsibilities || !startDate || !endDate || !applicationMethod) {
                 alert('กรุณากรอกข้อมูลที่จำเป็นให้ครบถ้วน (ช่องที่มีเครื่องหมาย *)');
                 return;
             }
@@ -2265,12 +3341,22 @@ ${responsibilities}
                 // Additional transfer data
                 agencyName: agencyName,
                 agencyType: agencyType,
+                province: province,
+                contactPerson: contactPerson,
+                phone: phone,
+                email: email,
                 position: position,
                 positionLevel: positionLevel,
                 quantity: parseInt(quantity),
+                salary: salary,
+                qualifications: qualifications,
+                responsibilities: responsibilities,
                 startDate: startDate,
                 endDate: endDate,
+                startWorkDate: startWorkDate,
                 applicationMethod: applicationMethod,
+                documents: documents,
+                additionalInfo: additionalInfo,
                 // Links
                 fullLink: fullLink,
                 formLink: formLink,
@@ -2383,14 +3469,22 @@ ${responsibilities}
             // Get required fields
             const agencyName = form.querySelector('input[placeholder="เช่น กรมการศึกษา"]').value;
             const agencyType = formData.get('agencyType');
+            const province = form.querySelector('select[required]').value;
+            const contactPerson = form.querySelector('input[placeholder="ชื่อ-นามสกุล ผู้ติดต่อ"]').value;
+            const phone = form.querySelector('input[type="tel"]').value;
+            const email = form.querySelector('input[type="email"]').value;
             const position = form.querySelector('input[placeholder="เช่น นักวิชาการศึกษาชำนาญการ"]').value;
-            const examType = form.querySelector('select[required]').value; // ประเภทการสอบ
-            const positionLevel = form.querySelectorAll('select[required]')[1].value; // ระดับตำแหน่ง
+            const examType = form.querySelectorAll('select[required]')[1].value; // ประเภทการสอบ
+            const positionLevel = form.querySelectorAll('select[required]')[2].value; // ระดับตำแหน่ง
             const quantity = form.querySelector('input[type="number"]').value;
+            const salary = form.querySelector('input[placeholder="เช่น 25,000 - 35,000 บาท"]').value;
             const qualifications = form.querySelector('textarea[required]').value;
             const startDate = form.querySelectorAll('input[type="date"]')[0].value;
             const endDate = form.querySelectorAll('input[type="date"]')[1].value;
-            const applicationMethod = form.querySelectorAll('select[required]')[2].value;
+            const examDate = form.querySelectorAll('input[type="date"]')[2].value;
+            const applicationMethod = form.querySelectorAll('select[required]')[3].value;
+            const documents = form.querySelectorAll('textarea')[1].value;
+            const additionalInfo = form.querySelectorAll('textarea')[2].value;
             
             // Get links
             const fullLink = document.getElementById('examFullLink').value;
@@ -2405,7 +3499,7 @@ ${responsibilities}
             });
             
             // Validate required fields
-            if (!agencyName || !agencyType || !position || !examType || !positionLevel || !quantity || !qualifications || !startDate || !endDate || !applicationMethod) {
+            if (!agencyName || !agencyType || !province || !contactPerson || !phone || !email || !position || !examType || !positionLevel || !quantity || !qualifications || !startDate || !endDate || !applicationMethod) {
                 alert('กรุณากรอกข้อมูลที่จำเป็นให้ครบถ้วน (ช่องที่มีเครื่องหมาย *)');
                 return;
             }
@@ -2453,12 +3547,21 @@ ${qualifications}
                 // Additional exam data
                 agencyName: agencyName,
                 agencyType: agencyType,
+                province: province,
+                contactPerson: contactPerson,
+                phone: phone,
+                email: email,
                 position: position,
                 positionLevel: positionLevel,
                 quantity: parseInt(quantity),
+                salary: salary,
+                qualifications: qualifications,
                 startDate: startDate,
                 endDate: endDate,
+                examDate: examDate,
                 applicationMethod: applicationMethod,
+                documents: documents,
+                additionalInfo: additionalInfo,
                 // Links
                 fullLink: fullLink,
                 formLink: formLink,
@@ -2591,6 +3694,5 @@ ${qualifications}
             console.log('สำหรับทดสอบ: อีเมล admin@demo.com รหัสผ่าน 123456');
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'972b6c0e96e94b94',t:'MTc1NTc5Mjg1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97329bb280ea4b89',t:'MTc1NTg2ODIwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
