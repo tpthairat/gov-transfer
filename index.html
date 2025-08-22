@@ -1533,6 +1533,7 @@
                         <button id="adminLoginBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center">
                             🔐 เข้าสู่ระบบแอดมิน
                         </button>
+
                     </div>
                 </div>
 
@@ -1685,7 +1686,7 @@
     </div>
 
     <script>
-        // Firebase Configuration
+        // Firebase Configuration - ใช้ค่าจริงสำหรับ Firebase project ของคุณ
         const firebaseConfig = {
             apiKey: "AIzaSyCs7dV8-B151tvnO2bgDlF0uwK_7R3mmmQ",
   authDomain: "thai-bf4f0.firebaseapp.com",
@@ -1709,10 +1710,74 @@
         let currentPage = 'home';
         let newsIdCounter = 4;
 
-        // Initialize empty database
+        // Initialize database with sample data
         function initializeDatabase() {
-            // Start with empty database - no sample data
-            console.log('ระบบเริ่มต้นด้วยฐานข้อมูลว่าง');
+            // Add sample data for demonstration
+            const sampleNews = [
+                {
+                    id: 'sample1',
+                    title: 'ประกาศรับโอนย้าย - นักประชาสัมพันธ์ (กรมประชาสัมพันธ์)',
+                    category: 'transfer',
+                    transferType: 'civil',
+                    content: 'กรมประชาสัมพันธ์ ประกาศรับโอนย้ายข้าราชการ\n\nตำแหน่ง: นักประชาสัมพันธ์ (ปฏิบัติการ)\nจำนวนที่รับ: 1 คน\nประเภทหน่วยงาน: กรม\n\nคุณสมบัติที่ต้องการ:\n- วุฒิปริญญาตรี สาขาประชาสัมพันธ์ นิเทศศาสตร์ หรือสาขาที่เกี่ยวข้อง\n- มีประสบการณ์ด้านประชาสัมพันธ์อย่างน้อย 2 ปี\n\nหน้าที่ความรับผิดชอบ:\n- จัดทำข่าวประชาสัมพันธ์\n- ประสานงานสื่อมวลชน\n- จัดกิจกรรมประชาสัมพันธ์\n\nรับสมัครตั้งแต่วันที่ 15 มกราคม 2568 ถึงวันที่ 30 มกราคม 2568\nวิธีการสมัคร: สมัครออนไลน์',
+                    date: '2024-12-15',
+                    author: 'กรมประชาสัมพันธ์',
+                    views: 156,
+                    timestamp: Date.now() - 86400000,
+                    status: 'approved',
+                    agencyName: 'กรมประชาสัมพันธ์',
+                    agencyType: 'department',
+                    province: 'เชียงราย',
+                    contactPerson: 'นางสาวสมใจ ใจดี',
+                    phone: '053-123456',
+                    email: 'contact@prd.go.th',
+                    position: 'นักประชาสัมพันธ์',
+                    positionLevel: 'ปฏิบัติการ',
+                    quantity: 1,
+                    salary: '18,000 - 25,000 บาท',
+                    qualifications: '- วุฒิปริญญาตรี สาขาประชาสัมพันธ์ นิเทศศาสตร์ หรือสาขาที่เกี่ยวข้อง\n- มีประสบการณ์ด้านประชาสัมพันธ์อย่างน้อย 2 ปี\n- มีทักษะการสื่อสารที่ดี\n- สามารถใช้โปรแกรมคอมพิวเตอร์ได้เป็นอย่างดี',
+                    responsibilities: '- จัดทำข่าวประชาสัมพันธ์\n- ประสานงานสื่อมวลชน\n- จัดกิจกรรมประชาสัมพันธ์\n- ดูแลเว็บไซต์และสื่อสังคมออนไลน์',
+                    startDate: '2025-01-15',
+                    endDate: '2025-01-30',
+                    startWorkDate: '2025-03-01',
+                    applicationMethod: 'online',
+                    documents: '- ใบสมัครโอนย้าย\n- สำเนาบัตรประชาชน\n- สำเนาทะเบียนบ้าน\n- หลักฐานการศึกษา\n- ประวัติการทำงาน',
+                    additionalInfo: 'ผู้สนใจสามารถติดต่อสอบถามเพิ่มเติมได้ที่หมายเลขโทรศัพท์ที่ระบุไว้'
+                },
+                {
+                    id: 'sample2',
+                    title: 'ประกาศสอบราชการ - นักวิชาการศึกษา (กรมการศึกษานอกระบบและการศึกษาตามอัธยาศัย)',
+                    category: 'exam',
+                    examType: 'pass',
+                    content: 'กรมการศึกษานอกระบบและการศึกษาตามอัธยาศัย ประกาศรับสมัครสอบแข่งขันเพื่อบรรจุและแต่งตั้งบุคคลเข้ารับราชการ\n\nตำแหน่ง: นักวิชาการศึกษา (ชำนาญการ)\nจำนวนที่รับสมัคร: 3 คน\nประเภทการสอบ: ผ่าน กพ.\n\nคุณสมบัติที่ต้องการ:\n- วุฒิปริญญาโท สาขาการศึกษา หรือสาขาที่เกี่ยวข้อง\n- ผ่านการสอบแข่งขันเพื่อบรรจุเข้ารับราชการ กพ.\n- มีประสบการณ์ด้านการศึกษาอย่างน้อย 5 ปี\n\nรับสมัครตั้งแต่วันที่ 20 ธันวาคม 2567 ถึงวันที่ 10 มกราคม 2568\nวิธีการสมัคร: สมัครออนไลน์',
+                    date: '2024-12-14',
+                    author: 'กรมการศึกษานอกระบบและการศึกษาตามอัธยาศัย',
+                    views: 234,
+                    timestamp: Date.now() - 172800000,
+                    status: 'approved',
+                    agencyName: 'กรมการศึกษานอกระบบและการศึกษาตามอัธยาศัย',
+                    agencyType: 'department',
+                    province: 'กรุงเทพมหานคร',
+                    contactPerson: 'นายสมชาย ดีใจ',
+                    phone: '02-2804567',
+                    email: 'nfe@moe.go.th',
+                    position: 'นักวิชาการศึกษา',
+                    positionLevel: 'ชำนาญการ',
+                    quantity: 3,
+                    salary: '25,000 - 35,000 บาท',
+                    qualifications: '- วุฒิปริญญาโท สาขาการศึกษา หรือสาขาที่เกี่ยวข้อง\n- ผ่านการสอบแข่งขันเพื่อบรรจุเข้ารับราชการ กพ.\n- มีประสบการณ์ด้านการศึกษาอย่างน้อย 5 ปี\n- มีความรู้ด้านการศึกษานอกระบบ',
+                    startDate: '2024-12-20',
+                    endDate: '2025-01-10',
+                    examDate: '2025-02-15',
+                    applicationMethod: 'online',
+                    documents: '- ใบสมัครสอบ\n- สำเนาบัตรประชาชน\n- สำเนาทะเบียนบ้าน\n- หลักฐานการศึกษา\n- หนังสือรับรองผ่าน กพ.',
+                    additionalInfo: 'การสอบจะจัดขึ้นในวันที่ 15 กุมภาพันธ์ 2568 ณ กรุงเทพมหานคร'
+                }
+            ];
+            
+            // Add to newsDatabase
+            newsDatabase = sampleNews;
+            console.log('เพิ่มข้อมูลตัวอย่างเรียบร้อยแล้ว');
         }
 
         // Load news from Firebase
@@ -1804,36 +1869,47 @@
             loginButton.disabled = true;
             errorDiv.classList.add('hidden');
 
-            // Demo login - check credentials
-            if (email === 'admin@demo.com' && password === '123456') {
-                setTimeout(() => {
-                    currentUser = { email: email };
+            // Use Firebase Authentication
+            auth.signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Signed in successfully
+                    const user = userCredential.user;
+                    currentUser = user;
                     isAdminLoggedIn = true;
                     hideAdminLogin();
                     updateAdminUI();
                     showPage('admin');
-                    console.log('เข้าสู่ระบบสำเร็จ:', email);
+                    console.log('เข้าสู่ระบบสำเร็จ:', user.email);
                     
                     loginButton.textContent = 'เข้าสู่ระบบ';
                     loginButton.disabled = false;
-                }, 1000);
-            } else {
-                setTimeout(() => {
-                    errorDiv.textContent = 'อีเมลหรือรหัสผ่านไม่ถูกต้อง';
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = getAuthErrorMessage(errorCode);
+                    
+                    errorDiv.textContent = errorMessage;
                     errorDiv.classList.remove('hidden');
                     
                     loginButton.textContent = 'เข้าสู่ระบบ';
                     loginButton.disabled = false;
-                }, 1000);
-            }
+                    
+                    console.error('เกิดข้อผิดพลาดในการเข้าสู่ระบบ:', error);
+                });
         }
 
         function adminLogout() {
-            isAdminLoggedIn = false;
-            currentUser = null;
-            updateAdminUI();
-            showPage('home');
-            console.log('ออกจากระบบสำเร็จ');
+            auth.signOut().then(() => {
+                // Sign-out successful
+                isAdminLoggedIn = false;
+                currentUser = null;
+                updateAdminUI();
+                showPage('home');
+                console.log('ออกจากระบบสำเร็จ');
+            }).catch((error) => {
+                console.error('เกิดข้อผิดพลาดในการออกจากระบบ:', error);
+                alert('เกิดข้อผิดพลาดในการออกจากระบบ');
+            });
         }
 
         function getAuthErrorMessage(errorCode) {
@@ -1882,9 +1958,23 @@
             }
         }
 
-        // Initialize admin UI
+        // Initialize admin UI and auth state listener
         function initializeAdminUI() {
-            updateAdminUI();
+            // Listen for authentication state changes
+            auth.onAuthStateChanged((user) => {
+                if (user) {
+                    // User is signed in
+                    currentUser = user;
+                    isAdminLoggedIn = true;
+                    console.log('ผู้ใช้เข้าสู่ระบบ:', user.email);
+                } else {
+                    // User is signed out
+                    currentUser = null;
+                    isAdminLoggedIn = false;
+                    console.log('ผู้ใช้ออกจากระบบ');
+                }
+                updateAdminUI();
+            });
         }
 
         // Navigation
@@ -3219,13 +3309,32 @@
             delete document.getElementById('newsForm').dataset.editId;
         });
 
-        // Create demo admin account on page load
-        function createDemoAdmin() {
+        // Create admin account (ใช้เฉพาะครั้งแรก)
+        function createAdminAccount() {
             const email = 'admin@demo.com';
             const password = '123456';
             
-            // For demo purposes, we'll simulate admin login without Firebase Auth
-            console.log('บัญชีแอดมินเดโม: admin@demo.com / 123456');
+            auth.createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    console.log('สร้างบัญชีแอดมินสำเร็จ:', user.email);
+                    
+                    // Update user profile
+                    user.updateProfile({
+                        displayName: "ผู้ดูแลระบบ"
+                    }).then(() => {
+                        console.log('อัปเดตโปรไฟล์สำเร็จ');
+                    });
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    if (errorCode === 'auth/email-already-in-use') {
+                        console.log('บัญชีแอดมินมีอยู่แล้ว');
+                    } else {
+                        console.error('เกิดข้อผิดพลาดในการสร้างบัญชี:', error);
+                    }
+                });
         }
 
 
@@ -3273,12 +3382,12 @@
             // Get required fields
             const agencyName = formData.get('agencyName');
             const agencyType = formData.get('agencyType');
-            const province = form.querySelector('select[required]').value;
+            const province = form.querySelectorAll('select[required]')[0].value; // จังหวัด
             const contactPerson = form.querySelector('input[placeholder="ชื่อ-นามสกุล ผู้ติดต่อ"]').value;
             const phone = form.querySelector('input[type="tel"]').value;
             const email = form.querySelector('input[type="email"]').value;
             const position = form.querySelector('input[placeholder="เช่น นักวิชาการปกครองชำนาญการ"]').value;
-            const positionLevel = form.querySelectorAll('select[required]')[1].value;
+            const positionLevel = form.querySelectorAll('select[required]')[1].value; // ระดับตำแหน่ง
             const quantity = form.querySelector('input[type="number"]').value;
             const salary = form.querySelector('input[placeholder="เช่น 25,000 - 35,000 บาท"]').value;
             const qualifications = form.querySelector('textarea[required]').value;
@@ -3286,7 +3395,7 @@
             const startDate = form.querySelectorAll('input[type="date"]')[0].value;
             const endDate = form.querySelectorAll('input[type="date"]')[1].value;
             const startWorkDate = form.querySelectorAll('input[type="date"]')[2].value;
-            const applicationMethod = form.querySelectorAll('select[required]')[2].value;
+            const applicationMethod = form.querySelectorAll('select[required]')[2].value; // วิธีการสมัคร
             const documents = form.querySelectorAll('textarea')[2].value;
             const additionalInfo = form.querySelectorAll('textarea')[3].value;
             
@@ -3482,7 +3591,7 @@ ${responsibilities}
             // Get required fields
             const agencyName = form.querySelector('input[placeholder="เช่น กรมการศึกษา"]').value;
             const agencyType = formData.get('agencyType');
-            const province = form.querySelector('select[required]').value;
+            const province = form.querySelectorAll('select[required]')[0].value; // จังหวัด
             const contactPerson = form.querySelector('input[placeholder="ชื่อ-นามสกุล ผู้ติดต่อ"]').value;
             const phone = form.querySelector('input[type="tel"]').value;
             const email = form.querySelector('input[type="email"]').value;
@@ -3495,7 +3604,7 @@ ${responsibilities}
             const startDate = form.querySelectorAll('input[type="date"]')[0].value;
             const endDate = form.querySelectorAll('input[type="date"]')[1].value;
             const examDate = form.querySelectorAll('input[type="date"]')[2].value;
-            const applicationMethod = form.querySelectorAll('select[required]')[3].value;
+            const applicationMethod = form.querySelectorAll('select[required]')[3].value; // วิธีการสมัคร
             const documents = form.querySelectorAll('textarea')[1].value;
             const additionalInfo = form.querySelectorAll('textarea')[2].value;
             
@@ -3703,10 +3812,10 @@ ${qualifications}
             document.getElementById('transferPostForm').addEventListener('submit', handleTransferFormSubmit);
             document.getElementById('examPostForm').addEventListener('submit', handleExamFormSubmit);
             
-            // Create demo admin account (for testing purposes)
-            createDemoAdmin();
-            console.log('สำหรับทดสอบ: อีเมล admin@demo.com รหัสผ่าน 123456');
+            // Create admin account if needed (uncomment to create admin account)
+            // createAdminAccount();
+            console.log('สำหรับเข้าสู่ระบบแอดมิน: admin@demo.com / 123456');
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97331eda656e45c0',t:'MTc1NTg3MzU3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'973334fcd2c545b4',t:'MTc1NTg3NDQ4NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
