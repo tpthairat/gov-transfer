@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- หน้าแรก -->
+  <url>
+    <loc>https://tpthairat.github.io/gov-transfer/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- หน้ารวมประกาศ -->
+  <url>
+    <loc>https://tpthairat.github.io/gov-transfer/#allNews</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- งานสอบราชการ -->
+  <url>
+    <loc>https://tpthairat.github.io/gov-transfer/#examPass</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tpthairat.github.io/gov-transfer/#examNotPass</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ประกาศโอนย้าย -->
+  <url>
+    <loc>https://tpthairat.github.io/gov-transfer/#civilServant</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tpthairat.github.io/gov-transfer/#localGov</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tpthairat.github.io/gov-transfer/#independent</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://tpthairat.github.io/gov-transfer/#others</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ข่าวสาร -->
+  <url>
+    <loc>https://tpthairat.github.io/gov-transfer/#transferNews</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tpthairat.github.io/gov-transfer/#lawsRegulations</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://tpthairat.github.io/gov-transfer/#documentGuide</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ลงประกาศ -->
+  <url>
+    <loc>https://tpthairat.github.io/gov-transfer/#postTransfer</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tpthairat.github.io/gov-transfer/#postExam</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
