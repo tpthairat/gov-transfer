@@ -1686,15 +1686,15 @@
     </div>
 
     <script>
-        // Firebase Configuration - ใช้ค่าจริงสำหรับ Firebase project ของคุณ
+        // Firebase Configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCs7dV8-B151tvnO2bgDlF0uwK_7R3mmmQ",
-  authDomain: "thai-bf4f0.firebaseapp.com",
-  databaseURL: "https://thai-bf4f0-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "thai-bf4f0",
-  storageBucket: "thai-bf4f0.firebasestorage.app",
-  messagingSenderId: "953478240466",
-  appId: "1:953478240466:web:a9d160b96ed569b14eb50b",
+            authDomain: "thai-bf4f0.firebaseapp.com",
+            databaseURL: "https://thai-bf4f0-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "thai-bf4f0",
+            storageBucket: "thai-bf4f0.firebasestorage.app",
+            messagingSenderId: "953478240466",
+            appId: "1:953478240466:web:a9d160b96ed569b14eb50b"
         };
 
         // Initialize Firebase
@@ -3379,25 +3379,25 @@
             const formData = new FormData(form);
             const editId = form.dataset.editId;
             
-            // Get required fields
+            // Get required fields - ใช้ name attributes และ specific selectors
             const agencyName = formData.get('agencyName');
             const agencyType = formData.get('agencyType');
-            const province = form.querySelectorAll('select[required]')[0].value; // จังหวัด
+            const province = form.querySelector('select[required]:nth-of-type(2)').value; // จังหวัด (select ที่ 2)
             const contactPerson = form.querySelector('input[placeholder="ชื่อ-นามสกุล ผู้ติดต่อ"]').value;
             const phone = form.querySelector('input[type="tel"]').value;
             const email = form.querySelector('input[type="email"]').value;
             const position = form.querySelector('input[placeholder="เช่น นักวิชาการปกครองชำนาญการ"]').value;
-            const positionLevel = form.querySelectorAll('select[required]')[1].value; // ระดับตำแหน่ง
+            const positionLevel = form.querySelector('select[required]:nth-of-type(3)').value; // ระดับตำแหน่ง (select ที่ 3)
             const quantity = form.querySelector('input[type="number"]').value;
             const salary = form.querySelector('input[placeholder="เช่น 25,000 - 35,000 บาท"]').value;
-            const qualifications = form.querySelector('textarea[required]').value;
-            const responsibilities = form.querySelectorAll('textarea[required]')[1].value;
-            const startDate = form.querySelectorAll('input[type="date"]')[0].value;
-            const endDate = form.querySelectorAll('input[type="date"]')[1].value;
-            const startWorkDate = form.querySelectorAll('input[type="date"]')[2].value;
-            const applicationMethod = form.querySelectorAll('select[required]')[2].value; // วิธีการสมัคร
-            const documents = form.querySelectorAll('textarea')[2].value;
-            const additionalInfo = form.querySelectorAll('textarea')[3].value;
+            const qualifications = form.querySelector('textarea[required]:nth-of-type(1)').value; // textarea แรก
+            const responsibilities = form.querySelector('textarea[required]:nth-of-type(2)').value; // textarea ที่สอง
+            const startDate = form.querySelector('input[type="date"]:nth-of-type(1)').value; // date แรก
+            const endDate = form.querySelector('input[type="date"]:nth-of-type(2)').value; // date ที่สอง
+            const startWorkDate = form.querySelector('input[type="date"]:nth-of-type(3)').value; // date ที่สาม
+            const applicationMethod = form.querySelector('select[required]:nth-of-type(4)').value; // วิธีการสมัคร (select ที่ 4)
+            const documents = form.querySelector('textarea:nth-of-type(3)').value; // textarea ที่สาม
+            const additionalInfo = form.querySelector('textarea:nth-of-type(4)').value; // textarea ที่สี่
             
             // Get links
             const fullLink = document.getElementById('transferFullLink').value;
@@ -3588,25 +3588,25 @@ ${responsibilities}
             const formData = new FormData(form);
             const editId = form.dataset.editId;
             
-            // Get required fields
+            // Get required fields - ใช้ specific selectors
             const agencyName = form.querySelector('input[placeholder="เช่น กรมการศึกษา"]').value;
             const agencyType = formData.get('agencyType');
-            const province = form.querySelectorAll('select[required]')[0].value; // จังหวัด
+            const province = form.querySelector('select[required]:nth-of-type(2)').value; // จังหวัด (select ที่ 2)
             const contactPerson = form.querySelector('input[placeholder="ชื่อ-นามสกุล ผู้ติดต่อ"]').value;
             const phone = form.querySelector('input[type="tel"]').value;
             const email = form.querySelector('input[type="email"]').value;
             const position = form.querySelector('input[placeholder="เช่น นักวิชาการศึกษาชำนาญการ"]').value;
-            const examType = form.querySelectorAll('select[required]')[1].value; // ประเภทการสอบ
-            const positionLevel = form.querySelectorAll('select[required]')[2].value; // ระดับตำแหน่ง
+            const examType = form.querySelector('select[required]:nth-of-type(3)').value; // ประเภทการสอบ (select ที่ 3)
+            const positionLevel = form.querySelector('select[required]:nth-of-type(4)').value; // ระดับตำแหน่ง (select ที่ 4)
             const quantity = form.querySelector('input[type="number"]').value;
             const salary = form.querySelector('input[placeholder="เช่น 25,000 - 35,000 บาท"]').value;
             const qualifications = form.querySelector('textarea[required]').value;
-            const startDate = form.querySelectorAll('input[type="date"]')[0].value;
-            const endDate = form.querySelectorAll('input[type="date"]')[1].value;
-            const examDate = form.querySelectorAll('input[type="date"]')[2].value;
-            const applicationMethod = form.querySelectorAll('select[required]')[3].value; // วิธีการสมัคร
-            const documents = form.querySelectorAll('textarea')[1].value;
-            const additionalInfo = form.querySelectorAll('textarea')[2].value;
+            const startDate = form.querySelector('input[type="date"]:nth-of-type(1)').value; // date แรก
+            const endDate = form.querySelector('input[type="date"]:nth-of-type(2)').value; // date ที่สอง
+            const examDate = form.querySelector('input[type="date"]:nth-of-type(3)').value; // date ที่สาม
+            const applicationMethod = form.querySelector('select[required]:nth-of-type(5)').value; // วิธีการสมัคร (select ที่ 5)
+            const documents = form.querySelector('textarea:nth-of-type(2)').value; // textarea ที่สอง
+            const additionalInfo = form.querySelector('textarea:nth-of-type(3)').value; // textarea ที่สาม
             
             // Get links
             const fullLink = document.getElementById('examFullLink').value;
@@ -3817,5 +3817,5 @@ ${qualifications}
             console.log('สำหรับเข้าสู่ระบบแอดมิน: admin@demo.com / 123456');
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'973334fcd2c545b4',t:'MTc1NTg3NDQ4NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97334d63447610fc',t:'MTc1NTg3NTQ4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
