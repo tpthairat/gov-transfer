@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ระบบโอนย้ายข้าราชการ</title>
+    <title>ประกาศโอนย้ายข้าราชการ</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
@@ -44,28 +44,28 @@
                             <span class="text-white text-2xl">🏛️</span>
                         </div>
                         <div>
-                            <h1 class="text-xl font-bold text-gray-800">ระบบโอนย้ายข้าราชการ</h1>
+                            <h1 class="text-xl font-bold text-gray-800">ประกาศโอนย้ายข้าราชการ</h1>
                             <p class="text-xs text-gray-500">Government Transfer System</p>
                         </div>
                     </div>
                 </div>
-                <div class="flex items-center space-x-2">
-                    <button id="homeBtn" class="nav-btn bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">หน้าหลัก</button>
+                <div class="hidden lg:flex items-center space-x-2">
+                    <button id="homeBtn" class="nav-btn bg-blue-600 text-white px-4 py-3 rounded-lg hover:bg-blue-700 transition-colors text-base font-medium">หน้าหลัก</button>
                     
-                    <button id="allNewsBtn" class="nav-btn text-gray-600 hover:text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors">ประกาศทั้งหมด</button>
+                    <button id="allNewsBtn" class="nav-btn text-gray-600 hover:text-blue-600 px-4 py-3 rounded-lg hover:bg-blue-50 transition-colors text-base font-medium">ประกาศทั้งหมด</button>
                     
                     <!-- งานสอบราชการ Dropdown -->
                     <div class="relative group">
-                        <button class="nav-btn text-gray-600 hover:text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors flex items-center">
-                            📝 งานสอบราชการ <span class="ml-1 text-xs">▼</span>
+                        <button class="nav-btn text-gray-600 hover:text-blue-600 px-4 py-3 rounded-lg hover:bg-blue-50 transition-colors flex items-center text-base font-medium">
+                            📝 งานสอบราชการ <span class="ml-1 text-sm">▼</span>
                         </button>
-                        <div class="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="absolute top-full left-0 mt-2 w-52 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                             <div class="p-2">
-                                <button id="examPassBtn" class="flex items-center w-full text-left px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
-                                    <span class="mr-3">✅</span>ผ่าน กพ.
+                                <button id="examPassBtn" class="flex items-center w-full text-left px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors text-sm">
+                                    <span class="mr-2">✅</span>ผ่าน กพ.
                                 </button>
-                                <button id="examNotPassBtn" class="flex items-center w-full text-left px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
-                                    <span class="mr-3">📋</span>ไม่ผ่าน กพ.
+                                <button id="examNotPassBtn" class="flex items-center w-full text-left px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors text-sm">
+                                    <span class="mr-2">📋</span>ไม่ผ่าน กพ.
                                 </button>
                             </div>
                         </div>
@@ -73,22 +73,22 @@
                     
                     <!-- ประกาศรับโอนย้าย Dropdown -->
                     <div class="relative group">
-                        <button class="nav-btn text-gray-600 hover:text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors flex items-center">
-                            🔄 ประกาศรับโอนย้าย <span class="ml-1 text-xs">▼</span>
+                        <button class="nav-btn text-gray-600 hover:text-blue-600 px-4 py-3 rounded-lg hover:bg-blue-50 transition-colors flex items-center text-base font-medium">
+                            🔄 โอนย้าย <span class="ml-1 text-sm">▼</span>
                         </button>
-                        <div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                             <div class="p-2">
-                                <button id="civilServantBtn" class="flex items-center w-full text-left px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
-                                    <span class="mr-3">👨‍💼</span>ข้าราชการพลเรือน
+                                <button id="civilServantBtn" class="flex items-center w-full text-left px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors text-sm">
+                                    <span class="mr-2">👨‍💼</span>ข้าราชการพลเรือน
                                 </button>
-                                <button id="localGovBtn" class="flex items-center w-full text-left px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
-                                    <span class="mr-3">🏢</span>ข้าราชการท้องถิ่น
+                                <button id="localGovBtn" class="flex items-center w-full text-left px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors text-sm">
+                                    <span class="mr-2">🏢</span>ข้าราชการท้องถิ่น
                                 </button>
-                                <button id="independentBtn" class="flex items-center w-full text-left px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
-                                    <span class="mr-3">⚖️</span>องค์กรอิสระ
+                                <button id="independentBtn" class="flex items-center w-full text-left px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors text-sm">
+                                    <span class="mr-2">⚖️</span>องค์กรอิสระ
                                 </button>
-                                <button id="othersBtn" class="flex items-center w-full text-left px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
-                                    <span class="mr-3">📁</span>อื่นๆ
+                                <button id="othersBtn" class="flex items-center w-full text-left px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors text-sm">
+                                    <span class="mr-2">📁</span>อื่นๆ
                                 </button>
                             </div>
                         </div>
@@ -96,19 +96,19 @@
                     
                     <!-- ข่าวสาร/บทความ Dropdown -->
                     <div class="relative group">
-                        <button class="nav-btn text-gray-600 hover:text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors flex items-center">
-                            📰 ข่าวสาร/บทความ <span class="ml-1 text-xs">▼</span>
+                        <button class="nav-btn text-gray-600 hover:text-blue-600 px-4 py-3 rounded-lg hover:bg-blue-50 transition-colors flex items-center text-base font-medium">
+                            📰 ข่าวสาร <span class="ml-1 text-sm">▼</span>
                         </button>
-                        <div class="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                             <div class="p-2">
-                                <button id="transferNewsBtn" class="flex items-center w-full text-left px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
-                                    <span class="mr-3">📰</span>ข่าวเกี่ยวกับการโอนย้าย
+                                <button id="transferNewsBtn" class="flex items-center w-full text-left px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors text-sm">
+                                    <span class="mr-2">📰</span>ข่าวเกี่ยวกับการโอนย้าย
                                 </button>
-                                <button id="lawsRegulationsBtn" class="flex items-center w-full text-left px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
-                                    <span class="mr-3">⚖️</span>กฎหมาย ระเบียบที่เกี่ยวข้อง
+                                <button id="lawsRegulationsBtn" class="flex items-center w-full text-left px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors text-sm">
+                                    <span class="mr-2">⚖️</span>กฎหมาย ระเบียบที่เกี่ยวข้อง
                                 </button>
-                                <button id="documentGuideBtn" class="flex items-center w-full text-left px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
-                                    <span class="mr-3">📋</span>บทความแนะนำการเตรียมเอกสาร
+                                <button id="documentGuideBtn" class="flex items-center w-full text-left px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors text-sm">
+                                    <span class="mr-2">📋</span>บทความแนะนำการเตรียมเอกสาร
                                 </button>
                             </div>
                         </div>
@@ -116,22 +116,29 @@
                     
                     <!-- ลงประกาศ Dropdown -->
                     <div class="relative group">
-                        <button class="nav-btn text-gray-600 hover:text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors flex items-center">
-                            ➕ ลงประกาศ <span class="ml-1 text-xs">▼</span>
+                        <button class="nav-btn text-gray-600 hover:text-blue-600 px-4 py-3 rounded-lg hover:bg-blue-50 transition-colors flex items-center text-base font-medium">
+                            ➕ ลงประกาศ <span class="ml-1 text-sm">▼</span>
                         </button>
-                        <div class="absolute top-full left-0 mt-2 w-60 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="absolute top-full left-0 mt-2 w-52 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                             <div class="p-2">
-                                <button id="postExamBtn" class="flex items-center w-full text-left px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">
-                                    <span class="mr-3">📝</span>งานสอบราชการ
+                                <button id="postExamBtn" class="flex items-center w-full text-left px-3 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors text-sm">
+                                    <span class="mr-2">📝</span>งานสอบราชการ
                                 </button>
-                                <button id="postTransferBtn" class="flex items-center w-full text-left px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">
-                                    <span class="mr-3">🔄</span>ประกาศรับโอนย้าย
+                                <button id="postTransferBtn" class="flex items-center w-full text-left px-3 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors text-sm">
+                                    <span class="mr-2">🔄</span>ประกาศรับโอนย้าย
                                 </button>
                             </div>
                         </div>
                     </div>
-                    
+                </div>
 
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden">
+                    <button id="mobileMenuBtn" class="text-gray-600 hover:text-blue-600 p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
@@ -142,7 +149,7 @@
         <!-- Home Page -->
         <div id="homePage" class="page-content fade-in">
             <div class="text-center mb-12 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 rounded-2xl p-12 shadow-xl">
-                <h2 class="text-4xl font-bold text-white mb-4">ระบบโอนย้ายข้าราชการ</h2>
+                <h2 class="text-4xl font-bold text-white mb-4">ประกาศโอนย้ายข้าราชการ</h2>
                 <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-8">ระบบจัดการข้อมูลการโอนย้ายข้าราชการ ติดตามข่าวสาร และจัดการข้อมูลอย่างมีประสิทธิภาพ</p>
                 
                 <!-- Quick Action Buttons -->
@@ -782,8 +789,8 @@
                                 <input type="tel" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="0X-XXXX-XXXX">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">อีเมล <span class="text-red-500">*</span></label>
-                                <input type="email" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="contact@agency.go.th">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">อีเมล</label>
+                                <input type="email" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="contact@agency.go.th">
                             </div>
                         </div>
                     </div>
@@ -1033,8 +1040,8 @@
                                 <input type="tel" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="0X-XXXX-XXXX">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">อีเมล <span class="text-red-500">*</span></label>
-                                <input type="email" required class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="contact@agency.go.th">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">อีเมล</label>
+                                <input type="email" class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="contact@agency.go.th">
                             </div>
                         </div>
                     </div>
@@ -2188,24 +2195,24 @@
                                         <p class="text-gray-800 font-semibold">${news.position || 'ไม่ระบุ'}</p>
                                     </div>
                                     <div>
-                                        <label class="text-sm font-medium text-gray-600">ระดับตำแหน่ง</label>
-                                        <p class="text-gray-800 font-semibold">${news.positionLevel || 'ไม่ระบุ'}</p>
+                                        <label class="text-sm font-medium text-gray-600">จังหวัด</label>
+                                        <p class="text-gray-800 font-semibold">${news.province || 'ไม่ระบุ'}</p>
                                     </div>
                                     <div>
                                         <label class="text-sm font-medium text-gray-600">จำนวนที่รับสมัคร</label>
                                         <p class="text-gray-800 font-semibold">${news.quantity || 'ไม่ระบุ'} คน</p>
                                     </div>
                                     <div>
-                                        <label class="text-sm font-medium text-gray-600">ประเภทการสอบ</label>
-                                        <p class="text-gray-800 font-semibold">${news.examType === 'pass' ? 'ผ่าน กพ.' : 'ไม่ผ่าน กพ.'}</p>
+                                        <label class="text-sm font-medium text-gray-600">วิธีการสมัคร</label>
+                                        <p class="text-gray-800 font-semibold">${getApplicationMethodText(news.applicationMethod) || 'ไม่ระบุ'}</p>
                                     </div>
                                     <div>
                                         <label class="text-sm font-medium text-gray-600">เงินเดือน</label>
                                         <p class="text-gray-800 font-semibold">${news.salary || 'ไม่ระบุ'}</p>
                                     </div>
                                     <div>
-                                        <label class="text-sm font-medium text-gray-600">ประเภทหน่วยงาน</label>
-                                        <p class="text-gray-800 font-semibold">${getAgencyTypeText(news.agencyType) || 'ไม่ระบุ'}</p>
+                                        <label class="text-sm font-medium text-gray-600">ระดับตำแหน่ง</label>
+                                        <p class="text-gray-800 font-semibold">${news.positionLevel || 'ไม่ระบุ'}</p>
                                     </div>
                                 </div>
                             </div>
@@ -2304,16 +2311,16 @@
                                         <p class="text-gray-800 font-semibold">${news.position || 'ไม่ระบุ'}</p>
                                     </div>
                                     <div>
-                                        <label class="text-sm font-medium text-gray-600">ระดับตำแหน่ง</label>
-                                        <p class="text-gray-800 font-semibold">${news.positionLevel || 'ไม่ระบุ'}</p>
+                                        <label class="text-sm font-medium text-gray-600">จังหวัด</label>
+                                        <p class="text-gray-800 font-semibold">${news.province || 'ไม่ระบุ'}</p>
                                     </div>
                                     <div>
                                         <label class="text-sm font-medium text-gray-600">จำนวนที่รับ</label>
                                         <p class="text-gray-800 font-semibold">${news.quantity || 'ไม่ระบุ'} คน</p>
                                     </div>
                                     <div>
-                                        <label class="text-sm font-medium text-gray-600">ประเภทหน่วยงาน</label>
-                                        <p class="text-gray-800 font-semibold">${getAgencyTypeText(news.agencyType) || 'ไม่ระบุ'}</p>
+                                        <label class="text-sm font-medium text-gray-600">ระดับตำแหน่ง</label>
+                                        <p class="text-gray-800 font-semibold">${news.positionLevel || 'ไม่ระบุ'}</p>
                                     </div>
                                     <div>
                                         <label class="text-sm font-medium text-gray-600">เงินเดือน</label>
@@ -3290,7 +3297,7 @@
             });
             
             // Validate required fields
-            if (!agencyName || !agencyType || !province || !contactPerson || !phone || !email || !position || !positionLevel || !quantity || !qualifications || !responsibilities || !startDate || !endDate || !applicationMethod) {
+            if (!agencyName || !agencyType || !province || !contactPerson || !phone || !position || !positionLevel || !quantity || !qualifications || !responsibilities || !startDate || !endDate || !applicationMethod) {
                 alert('กรุณากรอกข้อมูลที่จำเป็นให้ครบถ้วน (ช่องที่มีเครื่องหมาย *)');
                 return;
             }
@@ -3499,7 +3506,7 @@ ${responsibilities}
             });
             
             // Validate required fields
-            if (!agencyName || !agencyType || !province || !contactPerson || !phone || !email || !position || !examType || !positionLevel || !quantity || !qualifications || !startDate || !endDate || !applicationMethod) {
+            if (!agencyName || !agencyType || !province || !contactPerson || !phone || !position || !examType || !positionLevel || !quantity || !qualifications || !startDate || !endDate || !applicationMethod) {
                 alert('กรุณากรอกข้อมูลที่จำเป็นให้ครบถ้วน (ช่องที่มีเครื่องหมาย *)');
                 return;
             }
@@ -3694,5 +3701,5 @@ ${qualifications}
             console.log('สำหรับทดสอบ: อีเมล admin@demo.com รหัสผ่าน 123456');
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97329bb280ea4b89',t:'MTc1NTg2ODIwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9732d87212b14b58',t:'MTc1NTg3MDY5Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
