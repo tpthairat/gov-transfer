@@ -289,16 +289,18 @@
                     </div>
                     
                     <!-- Matching System -->
-                    <div class="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl hover:shadow-lg transition-all duration-300">
-                        <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <span class="text-3xl text-white">🤝</span>
-                        </div>
-                        <h4 class="text-xl font-bold text-gray-800 mb-3">การจับคู่</h4>
-                        <p class="text-gray-600 mb-6">ระบบช่วยจับคู่ข้าราชการกับหน่วยงานที่เหมาะสม</p>
-                        <button onclick="alert('ฟีเจอร์การจับคู่กำลังพัฒนา จะเปิดให้บริการเร็วๆ นี้')" class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
-                            เรียนรู้เพิ่มเติม
-                        </button>
-                    </div>
+<div class="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl hover:shadow-lg transition-all duration-300">
+  <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+    <span class="text-3xl text-white">🤝</span>
+  </div>
+  <h4 class="text-xl font-bold text-gray-800 mb-3">การจับคู่</h4>
+  <p class="text-gray-600 mb-6">ระบบช่วยจับคู่ข้าราชการกับหน่วยงานที่เหมาะสม</p>
+  <button onclick="showPage('matching')" 
+    class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+    เข้าใช้งานระบบจับคู่
+  </button>
+</div>
+
                 </div>
             </div>
 
@@ -505,7 +507,114 @@
                 <h2 class="text-3xl font-bold text-gray-800">ประกาศทั้งหมด</h2>
                 <button onclick="showPage('postTransfer')" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors">+ เพิ่มประกาศใหม่</button>
             </div>
+<!-- Matching Page -->
+<div id="matchingPage" class="page-content hidden">
+  <div class="text-center mb-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-4">🤝 ระบบจับคู่ข้าราชการกับหน่วยงาน</h2>
+    <p class="text-gray-600">เลือกตำแหน่งและจังหวัดที่ต้องการ ระบบจะแสดงประกาศที่ตรงกับคุณ</p>
+  </div>
 
+  <!-- Search Form -->
+  <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">ตำแหน่ง</label>
+        <input id="matchPosition" type="text" class="w-full border rounded-lg px-4 py-2" placeholder="เช่น นักวิชาการศึกษา">
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">จังหวัด</label>
+        <select id="matchProvince" class="w-full border rounded-lg px-4 py-2">
+          <option value="">ทุกจังหวัด</option>
+          <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
+          <option value="กระบี่">กระบี่</option>
+          <option value="กาญจนบุรี">กาญจนบุรี</option>
+          <option value="กาฬสินธุ์">กาฬสินธุ์</option>
+          <option value="กำแพงเพชร">กำแพงเพชร</option>
+          <option value="ขอนแก่น">ขอนแก่น</option>
+          <option value="จันทบุรี">จันทบุรี</option>
+          <option value="ฉะเชิงเทรา">ฉะเชิงเทรา</option>
+          <option value="ชลบุรี">ชลบุรี</option>
+          <option value="ชัยนาท">ชัยนาท</option>
+          <option value="ชัยภูมิ">ชัยภูมิ</option>
+          <option value="ชุมพร">ชุมพร</option>
+          <option value="เชียงราย">เชียงราย</option>
+          <option value="เชียงใหม่">เชียงใหม่</option>
+          <option value="ตรัง">ตรัง</option>
+          <option value="ตราด">ตราด</option>
+          <option value="ตาก">ตาก</option>
+          <option value="นครนายก">นครนายก</option>
+          <option value="นครปฐม">นครปฐม</option>
+          <option value="นครพนม">นครพนม</option>
+          <option value="นครราชสีมา">นครราชสีมา</option>
+          <option value="นครศรีธรรมราช">นครศรีธรรมราช</option>
+          <option value="นครสวรรค์">นครสวรรค์</option>
+          <option value="นนทบุรี">นนทบุรี</option>
+          <option value="นราธิวาส">นราธิวาส</option>
+          <option value="น่าน">น่าน</option>
+          <option value="บึงกาฬ">บึงกาฬ</option>
+          <option value="บุรีรัมย์">บุรีรัมย์</option>
+          <option value="ปทุมธานี">ปทุมธานี</option>
+          <option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์</option>
+          <option value="ปราจีนบุรี">ปราจีนบุรี</option>
+          <option value="ปัตตานี">ปัตตานี</option>
+          <option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา</option>
+          <option value="พะเยา">พะเยา</option>
+          <option value="พังงา">พังงา</option>
+          <option value="พัทลุง">พัทลุง</option>
+          <option value="พิจิตร">พิจิตร</option>
+          <option value="พิษณุโลก">พิษณุโลก</option>
+          <option value="เพชรบุรี">เพชรบุรี</option>
+          <option value="เพชรบูรณ์">เพชรบูรณ์</option>
+          <option value="แพร่">แพร่</option>
+          <option value="ภูเก็ต">ภูเก็ต</option>
+          <option value="มหาสารคาม">มหาสารคาม</option>
+          <option value="มุกดาหาร">มุกดาหาร</option>
+          <option value="แม่ฮ่องสอน">แม่ฮ่องสอน</option>
+          <option value="ยะลา">ยะลา</option>
+          <option value="ยโสธร">ยโสธร</option>
+          <option value="ร้อยเอ็ด">ร้อยเอ็ด</option>
+          <option value="ระนอง">ระนอง</option>
+          <option value="ระยอง">ระยอง</option>
+          <option value="ราชบุรี">ราชบุรี</option>
+          <option value="ลพบุรี">ลพบุรี</option>
+          <option value="ลำปาง">ลำปาง</option>
+          <option value="ลำพูน">ลำพูน</option>
+          <option value="เลย">เลย</option>
+          <option value="ศรีสะเกษ">ศรีสะเกษ</option>
+          <option value="สกลนคร">สกลนคร</option>
+          <option value="สงขลา">สงขลา</option>
+          <option value="สตูล">สตูล</option>
+          <option value="สมุทรปราการ">สมุทรปราการ</option>
+          <option value="สมุทรสงคราม">สมุทรสงคราม</option>
+          <option value="สมุทรสาคร">สมุทรสาคร</option>
+          <option value="สระแก้ว">สระแก้ว</option>
+          <option value="สระบุรี">สระบุรี</option>
+          <option value="สิงห์บุรี">สิงห์บุรี</option>
+          <option value="สุโขทัย">สุโขทัย</option>
+          <option value="สุพรรณบุรี">สุพรรณบุรี</option>
+          <option value="สุราษฎร์ธานี">สุราษฎร์ธานี</option>
+          <option value="สุรินทร์">สุรินทร์</option>
+          <option value="หนองคาย">หนองคาย</option>
+          <option value="หนองบัวลำภู">หนองบัวลำภู</option>
+          <option value="อ่างทอง">อ่างทอง</option>
+          <option value="อำนาจเจริญ">อำนาจเจริญ</option>
+          <option value="อุดรธานี">อุดรธานี</option>
+          <option value="อุตรดิตถ์">อุตรดิตถ์</option>
+          <option value="อุทัยธานี">อุทัยธานี</option>
+          <option value="อุบลราชธานี">อุบลราชธานี</option>
+        </select>
+      </div>
+      <div class="flex items-end">
+        <button id="matchSearchBtn" class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 w-full">ค้นหา</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Result Cards -->
+  <div id="matchResults" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Cards แสดงผลที่นี่ -->
+  </div>
+</div>
             <!-- Advanced Search Filter -->
             <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
                 <div class="flex justify-between items-center mb-4">
@@ -3977,8 +4086,50 @@ ${qualifications}
             console.log('สำหรับเข้าสู่ระบบแอดมิน: admin@demo.com / 123456');
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9733746e17454b82',t:'MTc1NTg3NzA4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9733746e17454b82',t:'MTc1NTg3NzA4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>
+  // ฟังก์ชันเปลี่ยนหน้า
+  function showPage(page) {
+    document.querySelectorAll('.page-content').forEach(el => el.classList.add('hidden'));
+    if (page === 'home') {
+      document.getElementById('homePage').classList.remove('hidden');
+    } else if (page === 'allNews') {
+      document.getElementById('allNewsPage').classList.remove('hidden');
+    } else if (page === 'matching') {
+      document.getElementById('matchingPage').classList.remove('hidden');
+    }
+  }
+
+  // ดึงข้อมูลจับคู่
+  document.getElementById("matchSearchBtn").addEventListener("click", function() {
+    let pos = document.getElementById("matchPosition").value.trim();
+    let province = document.getElementById("matchProvince").value;
+    let resultsDiv = document.getElementById("matchResults");
+    resultsDiv.innerHTML = "";
+
+    firebase.database().ref("announcements").once("value").then(snapshot => {
+      snapshot.forEach(child => {
+        let data = child.val();
+        if (
+          (pos === "" || (data.position && data.position.includes(pos))) &&
+          (province === "" || data.province === province)
+        ) {
+          let card = `
+            <div class="bg-white rounded-xl shadow-lg p-6">
+              <h4 class="font-bold text-lg text-gray-800">${data.position || "ไม่ระบุ"}</h4>
+              <p class="text-gray-600">หน่วยงาน: ${data.agencyName || "-"}</p>
+              <p class="text-gray-600">จังหวัด: ${data.province || "-"}</p>
+              <p class="text-gray-600">เงินเดือน: ${data.salary || "-"}</p>
+            </div>
+          `;
+          resultsDiv.innerHTML += card;
+        }
+      });
+    });
+  });
+</script>
+</body>
 </html>
+
 
 
 
